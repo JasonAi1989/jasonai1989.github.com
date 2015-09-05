@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Xcode Auto Layout | Jason&amp;Genius</title>
+  <title>iOS 动画设计 | Jason&amp;Genius</title>
   <meta name="author" content="Jason Ai">
   
-  <meta name="description" content="解释Xcode6中Auto Layout功能的使用">
+  <meta name="description" content="介绍一些动画设计的灵感来源以及使用swift进行动画开发的代码">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Xcode Auto Layout"/>
+  <meta property="og:title" content="iOS 动画设计"/>
   <meta property="og:site_name" content="Jason&amp;Genius"/>
 
   
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header">		
-			<h1> Xcode Auto Layout</h1>
+			<h1> iOS 动画设计</h1>
 		</div>		
 	
 
@@ -114,49 +114,24 @@ var _hmt = _hmt || [];
 
 	
 		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>解释Xcode6中Auto Layout功能的使用</p>
+			<i class="fa fa-info-circle"></i> <p>介绍一些动画设计的灵感来源以及使用swift进行动画开发的代码</p>
 			
 		</div> <!-- alert -->
 			
 
 	<!-- content -->
 	<div class="mypage">		
-	    <h3 id="他是什么">他是什么</h3><p>Auto Layout功能是Apple推出的用于适应各个不同尺寸屏幕设备的自动布局功能。</p>
-<h3 id="怎么用">怎么用</h3><ul>
-<li>首先给这个controller选中“use auto layout”选项</li>
-</ul>
+	    <h3 id="先介绍一个wiki百科对动画原则的总结：">先介绍一个wiki百科对动画原则的总结：</h3><p><a href="https://en.wikipedia.org/wiki/12_basic_principles_of_animation#External_links" target="_blank" rel="external">The 12 basic principles of animation</a></p>
+<p><a href="http://www.jianshu.com/p/1858a8733ba3" target="_blank" rel="external">The illusion of life (Chinese)</a></p>
+<p><a href="https://vimeo.com/93206523" target="_blank" rel="external">The illusion of life (video)</a></p>
+<p><a href="../video/the_illusion_of_life.html">The illusion of life (video2)</a></p>
 <a id="more"></a>
-<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/use_auto_layout.png" alt="use auto layout"></p>
-<ul>
-<li>然后在每个页面控件布局结束后，选择底部“reslove auto layout issues”-&gt;”Add missing constraints”，这样就会给这个页面中的每个控件添加相应的constraints</li>
-</ul>
-<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/resolve_constraints.png" alt="reslove auto layout issues"></p>
-<ul>
-<li><p>这里的constraints可以针对某个控件进行操作，也可以针对一个页面中的所有控件进行操作</p>
-</li>
-<li><p>如果添加了constraints可以在右侧的“size inspector”上看到相应的constraint，可以对其进行编辑</p>
-</li>
-</ul>
-<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/constaints_editor.png" alt="constraints editor"></p>
-<ul>
-<li>也可以通过右键控件，然后在页面中滑动鼠标的方式添加constraints</li>
-</ul>
-<h3 id="reslove_auto_layout_issues">reslove auto layout issues</h3><ul>
-<li><p>“update frames”是对移动后的控件进行复位的</p>
-</li>
-<li><p>“update constraints”是对移动后的控件进行实际的位置改变，否则会在页面中显示黄线，用以提示开发者控件只是移动了，但并未落实到实际的constraint上。</p>
-</li>
-<li><p>“Add missing constraints”对控件添加默认的constraints</p>
-</li>
-<li><p>“reset to suggested constraints”将控件设置到建议的constraints上</p>
-</li>
-<li><p>“clear constraints”清除控件或者页面所有的constraints</p>
-</li>
-</ul>
-<h3 id="如何验证">如何验证</h3><p>做了自动化布局后最好进行验证，以确保真正是在所有尺寸的设备上都能正常显示控件。</p>
-<p>使用“Assistant Editor”，然后调用“Preview”就能显示出在各种尺寸设备上的显示状况了。（在左下角可以添加多个尺寸的预览）</p>
-<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/preview.png" alt="Assistant Editor"></p>
-<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/many_inch.png" alt="many inch"></p>
+<h3 id="下面为一些著名的design社区，有的是静态图有的是动画效果图">下面为一些著名的design社区，有的是静态图有的是动画效果图</h3><p><a href="https://vimeo.com/" target="_blank" rel="external">vimeo 视频网站</a></p>
+<p><a href="https://dribbble.com/" target="_blank" rel="external">dribbble 图片网站，动态静态设计均有</a></p>
+<p><a href="http://capptivate.co/" target="_blank" rel="external">capptivate iOS动画设计网站</a></p>
+<p><a href="http://pttrns.com/" target="_blank" rel="external">pttrns 手机静态设计网站</a></p>
+<p><a href="http://www.google.com/design/spec/animation/authentic-motion.html" target="_blank" rel="external">google design 号称可以和Apple抗衡的设计网站</a></p>
+<h3 id="下面是在Swift中使用动画效果的代码">下面是在Swift中使用动画效果的代码</h3><p>待续。。。</p>
 	  
 	</div>
 
@@ -165,14 +140,14 @@ var _hmt = _hmt || [];
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2015/09/05/iOS学习笔记App/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2015/09/02/goldenDict/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2015/09/05/iphone－size/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -187,7 +162,7 @@ var _hmt = _hmt || [];
   <h2 class="title">留言</h2>
 
   
-  	 <div class="ds-thread" data-thread-key="2015/09/03/Xcode-AutoLayout/" data-title="Xcode Auto Layout" data-url="http://yoursite.com/2015/09/03/Xcode-AutoLayout/"></div>  
+  	 <div class="ds-thread" data-thread-key="2015/09/05/iOS学习笔记Animation/" data-title="iOS 动画设计" data-url="http://yoursite.com/2015/09/05/iOS学习笔记Animation/"></div>  
   
 </section>
 
@@ -201,7 +176,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2015-09-03 
+	2015-09-05 
 	</div>
 	
 
@@ -225,7 +200,7 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Xcode/">Xcode<span>2</span></a></li> <li><a href="/tags/iOS/">iOS<span>5</span></a></li>
+  <li><a href="/tags/Animation/">Animation<span>2</span></a></li> <li><a href="/tags/Swift/">Swift<span>3</span></a></li> <li><a href="/tags/iOS/">iOS<span>5</span></a></li>
     </ul>
 	</div>
 		
@@ -235,7 +210,7 @@ var _hmt = _hmt || [];
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
 	   <div id="toc" class="toc collapse in">
-			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#他是什么"><span class="toc-article-text">他是什么</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#怎么用"><span class="toc-article-text">怎么用</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#reslove_auto_layout_issues"><span class="toc-article-text">reslove auto layout issues</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#如何验证"><span class="toc-article-text">如何验证</span></a></li></ol>
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#先介绍一个wiki百科对动画原则的总结："><span class="toc-article-text">先介绍一个wiki百科对动画原则的总结：</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#下面为一些著名的design社区，有的是静态图有的是动画效果图"><span class="toc-article-text">下面为一些著名的design社区，有的是静态图有的是动画效果图</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#下面是在Swift中使用动画效果的代码"><span class="toc-article-text">下面是在Swift中使用动画效果的代码</span></a></li></ol>
 		</div>
 	
 	</div>
