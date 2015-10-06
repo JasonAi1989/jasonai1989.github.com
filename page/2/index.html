@@ -116,8 +116,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/巴比伦富翁理财课/" title="《巴比伦富翁理财课》读后感及笔记">巴比伦富翁理财课</a></div>						
+			<div class="date"> 2015-04-07 </div>
+			<div class="article-title"><a href="/2015/04/07/ruby.elementary2/" title="The basic knowledge about the Ruby">Ruby elementary 2</a></div>						
 		</h3>
 	
 
@@ -128,19 +128,209 @@ var _hmt = _hmt || [];
 	<div class="col-md-8">
 	
 	
-	  <p>《巴比伦富翁理财课》这本书很容易读懂，没有什么生涩的金融学术语，都是最直白的对话。</p>
-<p>这本书给我最大的惊喜在于古巴比伦人关于理财的观念，一直都以为古人只懂得攒钱的道理，但没想到他们竟然也通晓投资的真谛，关于保护财产的观念很值得现代人，尤其是热爱投资人士的关注。</p>
-<p>接下来就简单记下这本书里关于理财的规则（其实规则真的很简单，但其背后的道理却意义深远）。<br>
+	  <h3 id="语句块">语句块</h3><pre><code><span class="keyword">BEGIN{
+</span>    <span class="preprocessor">code</span>
+}
+</code></pre><p>运行在程序开始</p>
+<pre><code><span class="label">END</span>{
+    <span class="preprocessor">code</span>
+}
+</code></pre><p>运行在程序结尾</p>
 	
 	</div>
 	
 	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/01/巴比伦富翁理财课/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/babilun.jpg" alt="巴比伦富翁理财课"  class="nofancybox"></a></div>
+	  <div class="thumbnail"><a href="/2015/04/07/ruby.elementary2/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/ruby.png" alt="Ruby elementary 2"  class="nofancybox"></a></div>
 	</div>
 	
   
 </div>
-	<a type="button" href="/2015/09/01/巴比伦富翁理财课/#more" class="btn btn-default more">阅读此文</a>
+	<a type="button" href="/2015/04/07/ruby.elementary2/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-06 </div>
+			<div class="article-title"><a href="/2015/04/06/ruby.elementary/" title="The basic knowledge about the Ruby">Ruby elementary 1</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h2 id="ruby_install">ruby install</h2><p>使用Brightbox 维护的 Ruby PPA安装ruby到Ubuntu 上</p>
+<p>原文url：<a href="http://chloerei.com/2014/07/13/the-best-way-to-install-the-latest-version-of-ruby-on-ubuntu/">http://chloerei.com/2014/07/13/the-best-way-to-install-the-latest-version-of-ruby-on-ubuntu/</a></p>
+<pre><code>sudo apt-<span class="built_in">add</span>-repository <span class="keyword">pp</span><span class="variable">a:brightbox</span>/<span class="keyword">ruby</span>-ng
+
+sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
+</code></pre>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/04/06/ruby.elementary/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/ruby.png" alt="Ruby elementary 1"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/04/06/ruby.elementary/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-05 </div>
+			<div class="article-title"><a href="/2015/04/05/sed/" >sed笔记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <h2 id="替换并输出（不修改源文件）：">替换并输出（不修改源文件）：</h2><pre><code>sed  's/dog/<span class="keyword">cat</span>/<span class="keyword">g</span>' <span class="keyword">file</span>      ##dog被替换的内容，<span class="keyword">cat</span>替换的内容
+</code></pre><h2 id="备份后直接替换至源文件：">备份后直接替换至源文件：</h2><pre><code>sed -<span class="tag">i</span><span class="class">.bak</span> <span class="string">'s/dog/cat/g'</span> file  ##g意味着全局替换
+</code></pre>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/04/05/sed/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-04-04 </div>
+			<div class="article-title"><a href="/2015/04/04/shell/" >shell笔记</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <h2 id="判断_–_if">判断 – if</h2><h4 id="语法">语法</h4><pre><code><span class="keyword">if</span> [  ]
+<span class="keyword">then</span>
+    <span class="command"><span class="keyword">command</span></span>
+<span class="keyword">else</span>
+    <span class="command"><span class="keyword">command</span></span>
+fi
+</code></pre><p>或者</p>
+<pre><code><span class="keyword">if</span> [  ]；<span class="keyword">then</span>
+    <span class="command"><span class="keyword">command</span></span>
+<span class="keyword">else</span>
+    <span class="command"><span class="keyword">command</span></span>
+fi
+</code></pre>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/04/04/shell/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-23 </div>
+			<div class="article-title"><a href="/2015/03/23/安装Ruby/" >Ruby学习记录——安装Ruby</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>在Ubuntu上安装Ruby，首先想到的是到官网下载源码包然后编译安装，但在安装过程中遇到各种编译和安装错误，貌似是缺少很多的依赖库，在网上搜了一下，有好多的依赖库要安装，于是选择了另一条路进行安装（Ubunt官方软件源的版本太老了，学习最好能安装最新稳定版本的）。</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/03/23/安装Ruby/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-17 </div>
+			<div class="article-title"><a href="/2015/03/17/markdown流程图语法/" >markdown流程图语法</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>从网上找了很久关于markdown语法的文章，机会微乎其微，大多所指向的都是同一个页面<a href="https://github.com/adrai/flowchart.js">https://github.com/adrai/flowchart.js</a><br>这是github上的一个开源项目，里面对我有用的只有一小段文字</p>
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/03/17/markdown流程图语法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-03-06 </div>
+			<div class="article-title"><a href="/2015/03/06/freebsd内核时钟/" >freebsd内核时钟</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <p>freebsd中的ticks64相当于linux中的jiffies，记录从电脑开启至当前的所有时钟中断数</p>
+<p>ticks64/hz    就是电脑开机至当前所经历的秒数</p>
+<p>hz一般是1000或者100</p>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/03/06/freebsd内核时钟/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/freebsd.png" alt="freebsd内核时钟"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/03/06/freebsd内核时钟/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -186,11 +376,23 @@ var _hmt = _hmt || [];
 		<h4>分类</h4>
 		<ul class="tag_box inline list-unstyled">
 		
-			<li><a href="/categories/Linux/">Linux<span>2</span></a></li>
+			<li><a href="/categories/Linux/">Linux<span>3</span></a></li>
+		
+			<li><a href="/categories/Ruby/">Ruby<span>3</span></a></li>
 		
 			<li><a href="/categories/Tools/">Tools<span>1</span></a></li>
 		
+			<li><a href="/categories/Video/">Video<span>6</span></a></li>
+		
+			<li><a href="/categories/freeBSD/">freeBSD<span>4</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>2</span></a></li>
+		
 			<li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>5</span></a></li>
+		
+			<li><a href="/categories/markdown/">markdown<span>1</span></a></li>
+		
+			<li><a href="/categories/shell/">shell<span>2</span></a></li>
 		
 			<li><a href="/categories/读书/">读书<span>3</span></a></li>
 		
@@ -203,23 +405,41 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Xcode/">Xcode<span>2</span></a></li>
+			<li><a href="/tags/ospf/">ospf<span>1</span></a></li>
 		
-			<li><a href="/tags/理财/">理财<span>1</span></a></li>
+			<li><a href="/tags/MySQL/">MySQL<span>1</span></a></li>
+		
+			<li><a href="/tags/freeBSD/">freeBSD<span>4</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
+		
+			<li><a href="/tags/sed/">sed<span>1</span></a></li>
 		
 			<li><a href="/tags/创业/">创业<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>1</span></a></li>
+			<li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
+		
+			<li><a href="/tags/理财/">理财<span>1</span></a></li>
+		
+			<li><a href="/tags/English/">English<span>8</span></a></li>
+		
+			<li><a href="/tags/自传/">自传<span>1</span></a></li>
+		
+			<li><a href="/tags/shell/">shell<span>2</span></a></li>
 		
 			<li><a href="/tags/Swift/">Swift<span>3</span></a></li>
 		
+			<li><a href="/tags/时钟/">时钟<span>1</span></a></li>
+		
 			<li><a href="/tags/iOS/">iOS<span>5</span></a></li>
 		
-			<li><a href="/tags/English/">English<span>2</span></a></li>
+			<li><a href="/tags/Xcode/">Xcode<span>2</span></a></li>
 		
-			<li><a href="/tags/freeBSD/">freeBSD<span>1</span></a></li>
+			<li><a href="/tags/git/">git<span>3</span></a></li>
 		
-			<li><a href="/tags/自传/">自传<span>1</span></a></li>
+			<li><a href="/tags/illusion/">illusion<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
 		
 			<li><a href="/tags/Animation/">Animation<span>2</span></a></li>
 		
@@ -235,23 +455,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2015/09/06/Swift-basic-grammar-1/"  title="This is the Swift basic grammar." ><i class="fa fa-file-o"></i>Swift basic grammar 1...</a>
+        <a href="/2015/09/29/三种音标比较/" ><i class="fa fa-file-o"></i>三种音标比较...</a>
       </li>
     
       <li>
-        <a href="/2015/09/05/iOS学习笔记Animation/"  title="介绍一些动画设计的灵感来源以及使用swift进行动画开发的代码" ><i class="fa fa-file-o"></i>iOS 动画设计...</a>
+        <a href="/2015/09/28/英语48个音标——8双元音/" ><i class="fa fa-file-o"></i>英语48个音标——8双元音...</a>
       </li>
     
       <li>
-        <a href="/2015/09/05/iOS学习笔记App/"  title="iOS学习中遇到的一些记忆点以及一些问题的解决方法" ><i class="fa fa-file-o"></i>iOS 自学...</a>
+        <a href="/2015/09/28/英语48个音标——7短元音/" ><i class="fa fa-file-o"></i>英语48个音标——7短元音...</a>
       </li>
     
       <li>
-        <a href="/2015/09/05/iphone－size/"  title="罗列了从初代iPhone到当前最新iPhone设备的尺寸及标配系统" ><i class="fa fa-file-o"></i>iPhone/iPad型号，初始系统以及尺寸说明...</a>
+        <a href="/2015/09/28/英语48个音标——5长元音/" ><i class="fa fa-file-o"></i>英语48个音标——5长元音...</a>
       </li>
     
       <li>
-        <a href="/2015/09/03/Xcode-AutoLayout/"  title="解释Xcode6中Auto Layout功能的使用" ><i class="fa fa-file-o"></i>Xcode Auto Layout...</a>
+        <a href="/2015/09/28/英语48个音标——17浊辅音/" ><i class="fa fa-file-o"></i>英语48个音标——17浊辅音...</a>
       </li>
     
   </ul>
@@ -285,7 +505,16 @@ var _hmt = _hmt || [];
   &copy; 2015 Jason Ai
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
-</p> </footer>
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
 </div> <!-- container-narrow -->
   
 

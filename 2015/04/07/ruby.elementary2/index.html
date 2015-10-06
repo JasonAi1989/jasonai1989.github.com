@@ -1,0 +1,548 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ruby elementary 2 | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="The basic knowledge about the Ruby">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ruby elementary 2"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Ruby elementary 2</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+	
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>The basic knowledge about the Ruby</p>
+			
+		</div> <!-- alert -->
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h3 id="语句块">语句块</h3><pre><code><span class="keyword">BEGIN{
+</span>    <span class="preprocessor">code</span>
+}
+</code></pre><p>运行在程序开始</p>
+<pre><code><span class="label">END</span>{
+    <span class="preprocessor">code</span>
+}
+</code></pre><p>运行在程序结尾</p>
+<a id="more"></a>
+<h3 id="注释块">注释块</h3><pre><code><span class="comment">=begin
+    code
+=end</span>
+</code></pre><p>也可以用#来做注释</p>
+<h3 id="文件和行的关键字">文件和行的关键字</h3><pre><code><span class="keyword">__FILE__</span> 是文件的关键字
+<span class="keyword">__LINE__</span> 是行的关键字
+</code></pre><h3 id="数据类型">数据类型</h3><p>基本类型：Number、String、Ranges、Symbols</p>
+<p>特殊值：true、false、nil</p>
+<p>重要类型：Array和Hash</p>
+<h4 id="Number">Number</h4><p>可分为整型和浮点型，当出现下划线时，下划线可被忽略，如</p>
+<pre><code><span class="literal">a</span>=<span class="number">1</span>_000_000
+puts <span class="literal">a</span>
+</code></pre><p>结果为 1000000</p>
+<h4 id="String为字符串">String为字符串</h4><p>在字符串中存在使用\的转移字符，同时在字符串中可以使用#{code}来插入ruby表达式的结果，如下：</p>
+<pre><code><span class="built_in">puts</span> <span class="string">"hello\nworld"</span>
+<span class="built_in">puts</span> <span class="string">"Here is #{__LINE__}"</span>
+</code></pre><p>结果为：</p>
+<pre><code>hello
+world
+Here <span class="keyword">is</span> <span class="number">10</span>
+</code></pre><h4 id="Ranges为范围">Ranges为范围</h4><p>可以使用三种方式定义一个范围类型</p>
+<pre><code>(<span class="number">1.</span><span class="number">.5</span>)  结果为<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>
+(<span class="number">1.</span>.<span class="number">.5</span>)  结果为<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>
+Range.new 这个不清楚
+</code></pre><h4 id="Array数组">Array数组</h4><p>定义方式：</p>
+<pre><code><span class="literal">a</span>=[<span class="string">"hello"</span>, <span class="number">12</span>, <span class="string">"world"</span>]
+</code></pre><p>在我看来，ruby的数组是一种泛型的数组，不想c语言中，一个数组中的所有元素类型都是一样的，在ruby的数组中，可以有多种元素的类型。</p>
+<p>在数组中可以调用方法length计算数组的长度</p>
+<pre><code><span class="operator">a</span>.<span class="built_in">length</span>
+</code></pre><h4 id="Hash哈希表">Hash哈希表</h4><p>哈希表要知道键和值的概念，用键去找值，定义方式如下：</p>
+<pre><code>a={<span class="string">"red"</span>=&gt;<span class="number">123</span>, <span class="string">"yellow"</span>=&gt;<span class="number">20</span>, <span class="string">"white"</span>=&gt;<span class="number">89</span>}
+</code></pre><h3 id="类和对象">类和对象</h3><p>五种变量类型（准确的说应该是五种变量的作用范围）</p>
+<pre><code>局部变量：    <span class="tag">a</span>, _a
+实例变量：    @<span class="tag">a</span>
+类变量：      @@<span class="tag">a</span>
+全局变量：    <span class="variable">$a</span>
+常量         VAR
+</code></pre><p>注：常量必须以大写字母开头，常量只有在定义时能赋值（初始化），之后不允许修改其值，常量不能在方法中被定义，但可以在类中被定义（此时只被此类使用）</p>
+<h5 id="类的定义">类的定义</h5><pre><code>clase Test
+    code
+<span class="keyword">end</span>
+</code></pre><p>定义一个名字为test的类</p>
+<h5 id="函数定义">函数定义</h5><pre><code><span class="function"><span class="keyword">def</span> <span class="title">func</span></span>
+    code
+<span class="keyword">end</span>
+</code></pre><p>定义一个名字为func的函数</p>
+<p>注：</p>
+<ul>
+<li><p>使用#可以取变量的值，比如#a, #_a, #@a, #@@a, #$a</p>
+</li>
+<li><p>类名的首字母一定要大写</p>
+</li>
+<li>在 Ruby 中，类和方法也可以被当作常量。</li>
+</ul>
+<h3 id="运算符">运算符</h3><p>ruby中的运算符和c中有很多相同的，在这里只列出与c用含义不同的运算符。</p>
+<blockquote>
+<p><strong> 指数运算符， 10</strong>3，结果为10的3次方</p>
+<p>&lt;=&gt; 联合运算符，相当于字符串里面的strcmp函数，会有0，1，-1三种返回值</p>
+<p>.eql?    如果接收器和参数具有相同的类型和相等的值，则返回 true。    1 == 1.0 返回 true，但是 1.eql?(1.0) 返回 false。</p>
+<p>**= 例如：a**=3 等价于 a=a**3</p>
+<p>..和…   这两个为范围运算符，（1..5）为1~5，(1…5)为1~4</p>
+<p>:: 调用类中的常量值，同时也可以用于将类中的常量值升级到全局变量，如</p>
+</blockquote>
+<pre><code>情形一
+<span class="keyword">class</span> Test
+    VAR = <span class="number">10</span>
+end
+
+<span class="built_in">puts</span> Test::VAR   <span class="preprocessor">#显示为<span class="number">10</span></span>
+<span class="built_in">puts</span> VAR  <span class="preprocessor">#报错</span>
+
+情形二
+<span class="keyword">class</span> Test
+    ::VAR = <span class="number">10</span>
+end
+
+<span class="built_in">puts</span> Test::VAR   <span class="preprocessor">#显示为<span class="number">10</span></span>
+<span class="built_in">puts</span> VAR <span class="preprocessor">#显示为<span class="number">10</span></span>
+</code></pre><p>注：ruby中没有自增和自减运算符</p>
+<h3 id="判断（3类5种）">判断（3类5种）</h3><p>3类判断方式分别为：if, unless, case<br>5种判断方式分别为：if和if后缀模式，unless和unless后缀模式，case<br>先来说一下非后缀模式的3种，和c语言很像。</p>
+<h5 id="if">if</h5><pre><code><span class="keyword">if</span> condition
+    code
+<span class="keyword">elsif</span>
+    code
+<span class="keyword">else</span>
+    code
+<span class="keyword">end</span>
+</code></pre><h5 id="unless">unless</h5><pre><code><span class="keyword">unless</span> condition
+    code
+<span class="keyword">else</span>
+    code
+<span class="keyword">end</span>
+</code></pre><h5 id="case">case</h5><pre><code><span class="keyword">case</span> args
+<span class="keyword">when</span> a
+    code
+<span class="keyword">when</span> b
+    code
+<span class="keyword">else</span>
+    code
+<span class="keyword">end</span>
+</code></pre><blockquote>
+<p>注：</p>
+<ul>
+<li><p>unless和case中没有elsif关键字，unless的条件为假时执行他的代码</p>
+</li>
+<li><p>if/elsif/unless/when的行尾可以添加then，但这不是必须的，then是可选关键字</p>
+</li>
+</ul>
+</blockquote>
+<p>2中后缀模式</p>
+<pre><code><span class="tag">code</span> <span class="keyword">if</span> condition  #condition为true时执行<span class="tag">code</span>
+<span class="tag">code</span> unless condition  #condition为false时执行code
+</code></pre><h3 id="循环以及打断">循环以及打断</h3><p>循环3种，分别为：while，until和for</p>
+<p>打断4种，分别为：break，next，redo，retry</p>
+<h5 id="while">while</h5><pre><code><span class="keyword">while</span> condition [<span class="keyword">do</span>]
+    code
+<span class="keyword">end</span>
+</code></pre><h5 id="until">until</h5><pre><code><span class="keyword">until</span> condition [<span class="keyword">do</span>]
+    code
+<span class="keyword">end</span>
+</code></pre><h5 id="for">for</h5><pre><code><span class="keyword">for</span> arg <span class="keyword">in</span> expression [<span class="keyword">do</span>]
+    code
+<span class="keyword">end</span>
+</code></pre><p>和判断一样，循环也拥有后缀模式</p>
+<h5 id="while后缀模式">while后缀模式</h5><pre><code>code <span class="keyword">while</span> <span class="keyword">condition</span>
+</code></pre><p>或者</p>
+<pre><code><span class="keyword">begin
+</span>    <span class="preprocessor">code</span>
+<span class="label">end</span> <span class="preprocessor">while</span> condition
+</code></pre><p>这面这种情况会先执行一次code再判断，相当于c语言中的do…while结构</p>
+<h5 id="until后缀模式">until后缀模式</h5><pre><code><span class="tag">code</span> until condition
+</code></pre><p>或者</p>
+<pre><code><span class="keyword">begin</span>
+    code
+<span class="keyword">end</span> <span class="keyword">until</span> condition
+</code></pre><h5 id="break">break</h5><p>同c语言中break语义一样</p>
+<h5 id="next">next</h5><p>同c语言中continue语义一样</p>
+<h5 id="redo">redo</h5><p>重做，有点类似next，不同在于for循环中next会进入下一次循环，而redo还在此次循环中重新执行</p>
+<h5 id="retry">retry</h5><p>这个主要是和异常处理rescue关键字配合使用，当异常处理结束时可以使用retry重新执行之前的程序，具体详见后文。。。</p>
+<h3 id="方法">方法</h3><p>方法就是c语言中的函数，方法可以定义在类内，也可以定义在类外，类内的方法默认是public的属性，类外的方法默认是private的属性，如果想调用类内方法需要先实例化此类，或者使用如下方式定义此方法：</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>
+    <span class="function"><span class="keyword">def</span> <span class="title">Test</span>.<span class="title">func</span></span>
+        code
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="constant">Test</span>.func
+</code></pre><p>用类名.方法名的方式定义一个类内方法，可以直接在类外不需实例化就可被调用</p>
+<h5 id="别名">别名</h5><p>对方法可以定义一个别名，但只能在类外进行定义</p>
+<pre><code><span class="type">alias</span> foo  bar
+</code></pre><p>其中bar是方法名，foo是新定义的别名</p>
+<h5 id="返回值">返回值</h5><p>默认情况下，方法内的最后一条语句的值就是返回值，但也可以使用return进行返回，使用return可以返回多个值，比如</p>
+<pre><code>def <span class="function"><span class="keyword">func</span></span>
+    code
+    <span class="keyword">return</span> a,b,c
+end
+
+d=<span class="function"><span class="keyword">func</span></span>
+</code></pre><p>会将a,b,c三个值进行返回，返回值的接收者d会接收最后一个值c</p>
+<h5 id="可变数量参数">可变数量参数</h5><p>c语言中有可变数量的参数，ruby中也有</p>
+<pre><code>def <span class="function"><span class="keyword">func</span><span class="params">(*test)</span></span>
+    code
+    len=test.length
+end
+
+<span class="function"><span class="keyword">func</span> "<span class="title">a</span>" "<span class="title">b</span>" 2</span>
+</code></pre><p>这里的test就是一个可变数量的参数，他其实是一个数组</p>
+<h5 id="方法的首字母">方法的首字母</h5><p>方法的首字母一定要小写，不然会被解析器当作常量，导致出现问题</p>
+<p>现在总结一下各个字母大小写的问题</p>
+<blockquote>
+<p>类名首字母要大写</p>
+<p>常量首字母要大写</p>
+<p>变量首字母要小写</p>
+<p>方法名首字母要小写</p>
+</blockquote>
+<h3 id="块">块</h3><p>在ruby中，块是一个很重要的概念，他能让你更灵活的使用方法。</p>
+<p>首先要记住一点，<strong>块最终会运行在同名的方法中</strong>。（BEGIN和END块除外）</p>
+<p>下面是块的概念：</p>
+<ul>
+<li>块由大量的代码组成</li>
+<li>块需要一个名字</li>
+<li>块中的代码需要写在｛｝内</li>
+<li>块会在同名的方法中被运行</li>
+<li>可以在方法内通过yield来调用块</li>
+</ul>
+<p>例如：</p>
+<pre><code>def func1
+    <span class="built_in">puts</span> <span class="string">"here is first line"</span>
+    yield <span class="number">10</span>   <span class="preprocessor">#块在此处被调用，参数为<span class="number">10</span></span>
+    <span class="built_in">puts</span> <span class="string">"end line"</span>
+end
+
+func1 {|n| <span class="built_in">puts</span> <span class="string">"milld line #{n}"</span>}  <span class="preprocessor">#方法func1在此处被调用，n为参数</span>
+</code></pre><p>块中的参数要用||包起来，里面可以放多个参数，并用逗号分割</p>
+<p>除了使用yield外还可以使用call来调用一个块，例如</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">func2</span></span>(&amp;arg)
+    puts <span class="string">"start"</span>
+    arg.call(<span class="number">6</span>,<span class="number">7</span>)
+    puts <span class="string">"end"</span>
+<span class="keyword">end</span>
+
+func2 {|n,m| puts <span class="string">"line <span class="subst">#{n}</span> and line <span class="subst">#{m}</span>"</span>}
+</code></pre><p>块中的内容作为参数被传入到了func2中，接收此内容的为arg,此参数必须为参数列别中的最后一个，并且有符号&amp;作为修饰才能接收块的内容，然后参数arg调用方法call调用了块的内容，n和m为块的参数</p>
+<p>方法的特殊参数;</p>
+<ul>
+<li>*arg,  arg成为一个数组，用于可变参数</li>
+<li>&amp;arg,  用于接收块的内容，并通过call方法对块内容进行调用</li>
+</ul>
+<h3 id="模块">模块</h3><p>在我看来，模块的最大用处是提供了命令空间，并能被外部的类引用（或叫插入），模块的定义方式和类很像</p>
+<pre><code><span class="class"><span class="keyword">module</span> <span class="title">Test</span></span>
+    code
+<span class="keyword">end</span>    
+</code></pre><p>和类一样，模块名的首字母需要大写。在模块内部可以定义常量和方法（函数），与类中方法不一样的地方是，在模块中需要如下定义一个方法：</p>
+<pre><code><span class="keyword">module</span> <span class="constant">Test</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">Test</span></span>.func
+        code
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+a=<span class="constant">Test.</span>func
+</code></pre><p>因为模块是不需要实例化的，所以只能如上定义一个模块方法（还记得如何定义一个不需实例化即可被调用的类方法吗）</p>
+<h5 id="引入文件">引入文件</h5><p>类似c语言中include引入某个文件，在ruby中使用require引入某个文件</p>
+<pre><code><span class="built_in">require</span> filename
+</code></pre><p>此处需要注意的是引入文件的位置，我们可以如下指定一个位置</p>
+<pre><code><span class="variable">$LOAD_PATH</span> &lt;&lt; <span class="string">"."</span>   <span class="preprocessor">#意思为当前目录下的文件</span>
+</code></pre><p>或者使用</p>
+<pre><code>require_relative <span class="type">file</span>
+</code></pre><p>来引入一个相对位置</p>
+<p>注：一个文件可以包含多个模块</p>
+<h5 id="在类中引入模块">在类中引入模块</h5><p>可以在类中引入某个模块，但前提是已经引入了此模块文件</p>
+<pre><code><span class="preprocessor"><span class="keyword">include</span> modulename</span>
+</code></pre><p>例如</p>
+<pre><code><span class="variable">$LOAD_PATH</span> &lt;&lt; <span class="string">"."</span>
+
+<span class="keyword">require</span> <span class="string">"support.rb"</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+    <span class="keyword">include</span> <span class="constant">Test</span>
+
+    <span class="function"><span class="keyword">def</span> <span class="title">func</span></span>
+        <span class="constant">Test::VAR</span>  <span class="comment">#使用Test模块中的VAR常量</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</code></pre><h5 id="mixin机制">mixin机制</h5><p>这个机制类似多重继承，但ruby不直接支持多重继承</p>
+<pre><code><span class="class"><span class="keyword">module</span> <span class="title">A</span></span>
+    <span class="function"><span class="keyword">def</span> <span class="title">A</span>.<span class="title">func1</span></span>
+        code
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="class"><span class="keyword">module</span> <span class="title">B</span></span>
+    <span class="function"><span class="keyword">def</span> <span class="title">B</span>.<span class="title">func2</span></span>
+        code
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+    <span class="keyword">include</span> <span class="constant">A</span>
+    <span class="keyword">include</span> <span class="constant">B</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">func3</span></span>
+        code
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+a=<span class="constant">User</span>.new
+a.func1
+a.func2
+a.cunf3
+</code></pre><p>类User同时拥有了模块A和模块B的特性。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/05/15/windows系统文件丢失导致git gui崩溃/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/04/06/ruby.elementary/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/04/07/ruby.elementary2/" data-title="Ruby elementary 2" data-url="http://yoursite.com/2015/04/07/ruby.elementary2/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-04-07 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Ruby/">Ruby<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#语句块"><span class="toc-article-text">语句块</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#注释块"><span class="toc-article-text">注释块</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#文件和行的关键字"><span class="toc-article-text">文件和行的关键字</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#数据类型"><span class="toc-article-text">数据类型</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Number"><span class="toc-article-text">Number</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#String为字符串"><span class="toc-article-text">String为字符串</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Ranges为范围"><span class="toc-article-text">Ranges为范围</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Array数组"><span class="toc-article-text">Array数组</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Hash哈希表"><span class="toc-article-text">Hash哈希表</span></a></li></ol></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#类和对象"><span class="toc-article-text">类和对象</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#类的定义"><span class="toc-article-text">类的定义</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#函数定义"><span class="toc-article-text">函数定义</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#运算符"><span class="toc-article-text">运算符</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#判断（3类5种）"><span class="toc-article-text">判断（3类5种）</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#if"><span class="toc-article-text">if</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#unless"><span class="toc-article-text">unless</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#case"><span class="toc-article-text">case</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#循环以及打断"><span class="toc-article-text">循环以及打断</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#while"><span class="toc-article-text">while</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#until"><span class="toc-article-text">until</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#for"><span class="toc-article-text">for</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#while后缀模式"><span class="toc-article-text">while后缀模式</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#until后缀模式"><span class="toc-article-text">until后缀模式</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#break"><span class="toc-article-text">break</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#next"><span class="toc-article-text">next</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#redo"><span class="toc-article-text">redo</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#retry"><span class="toc-article-text">retry</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#方法"><span class="toc-article-text">方法</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#别名"><span class="toc-article-text">别名</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#返回值"><span class="toc-article-text">返回值</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#可变数量参数"><span class="toc-article-text">可变数量参数</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#方法的首字母"><span class="toc-article-text">方法的首字母</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#块"><span class="toc-article-text">块</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#模块"><span class="toc-article-text">模块</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#引入文件"><span class="toc-article-text">引入文件</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#在类中引入模块"><span class="toc-article-text">在类中引入模块</span></a></li><li class="toc-article-item toc-article-level-5"><a class="toc-article-link" href="#mixin机制"><span class="toc-article-text">mixin机制</span></a></li></ol></li></ol></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

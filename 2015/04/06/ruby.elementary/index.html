@@ -1,0 +1,583 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ruby elementary 1 | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="The basic knowledge about the Ruby">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ruby elementary 1"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Ruby elementary 1</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+	
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>The basic knowledge about the Ruby</p>
+			
+		</div> <!-- alert -->
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h2 id="ruby_install">ruby install</h2><p>使用Brightbox 维护的 Ruby PPA安装ruby到Ubuntu 上</p>
+<p>原文url：<a href="http://chloerei.com/2014/07/13/the-best-way-to-install-the-latest-version-of-ruby-on-ubuntu/" target="_blank" rel="external">http://chloerei.com/2014/07/13/the-best-way-to-install-the-latest-version-of-ruby-on-ubuntu/</a></p>
+<pre><code>sudo apt-<span class="built_in">add</span>-repository <span class="keyword">pp</span><span class="variable">a:brightbox</span>/<span class="keyword">ruby</span>-ng
+
+sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
+</code></pre><a id="more"></a>
+<pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install ruby2.<span class="number">1</span> ruby2.<span class="number">1</span>-dev
+
+<span class="label">sudo</span> gem install <span class="keyword">bundler
+</span>
+<span class="label">ruby</span> -v
+</code></pre><p>注：如果第一句命令出现问题</p>
+<pre><code>apt-<span class="built_in">add</span>-repository: <span class="command"><span class="keyword">command</span> <span class="title">not</span> <span class="title">found</span></span>
+</code></pre><p>可以使用如下命令进行安装相关的依赖包</p>
+<pre><code><span class="label">sudo</span> apt-<span class="preprocessor">get</span> install python-software-properties
+<span class="label">sudo</span> apt-<span class="preprocessor">get</span> install software-properties-<span class="preprocessor">common</span> 
+</code></pre><h2 id="rails_install">rails install</h2><pre><code>sudo gem <span class="keyword">install</span> rails -V
+
+rails -v
+</code></pre><p><em>这里可能会安装失败，如果是权限问题，那原因是gem需要sudo权限，于是sudo gem install rails -V试试；</em></p>
+<p><em>如果不是权限问题导致的错误，建议再次安装，因为<a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a> 这个站点有时可能会连接不上，导致下载文件出错。</em>    </p>
+<p><em>-V是为了能显示出详细的安装信息，不然会出现半天看不到反映，但其实是在静默安装的现象</em></p>
+<p><em>由于使用PPA库安装的原因，以后在调用gem安装插件时需要使用sudo权限</em></p>
+<h4 id="安装失败">安装失败</h4><p>如果你无法安装成功，那可能是因为很多原因引起的，来试试下面的方法吧。</p>
+<blockquote>
+<p>1、权限问题，使用sudo权限，sudo gem install rails -V</p>
+<p>2、站点不稳定， <a href="https://rubygems.org/" target="_blank" rel="external">https://rubygems.org/</a> 这个站点有时会不稳定，建议重试</p>
+<p>3、缺少库。如果是和zlib相关的错误，比如</p>
+</blockquote>
+<pre><code>'zlib <span class="keyword">is</span> missing; necessary <span class="keyword">for</span> building libxml2'
+
+那可以安装包zlib1g和zlib1g-dev：
+
+sudo apt-<span class="keyword">get</span> install zlib1g zlib1g-dev
+</code></pre><blockquote>
+<p>4、缺少库。如果是和nokogiri相关的错误，可以安装包：</p>
+</blockquote>
+<pre><code>sudo apt-get <span class="operator"><span class="keyword">install</span> libxslt-dev libxml2-dev
+
+sudo gem <span class="keyword">install</span> nokogiri -V 
+
+如果还是有问题，请尝试
+
+sudo gem <span class="keyword">install</span> nokogiri -V -v <span class="string">'1.5.10'</span></span>
+</code></pre><blockquote>
+<p>5、如果是缺少其他的库请自行百度谷歌，因为每台电脑的情况都不一样，我就不在这里罗列了</p>
+</blockquote>
+<h4 id="gem是个啥？">gem是个啥？</h4><p>gem有多个意思，比如G.E.M是歌手邓紫棋的英文名字，她唱的歌倒是蛮好听的；</p>
+<p>在英文中gem是宝石、珍宝、精华的意思；</p>
+<p>而在Ruby的世界里，gem是一类基于Ruby开发工具包，而gem install这个命令呢就是安装这些工具包用的，比如rails，他就是基于<br>Ruby的工具，专门用来做网站的工具。</p>
+<h4 id="gem命令">gem命令</h4><pre><code>gem <span class="operator"><span class="keyword">update</span>  <span class="comment">--system    //更新gem版本</span>
+gem <span class="keyword">install</span> [gem <span class="keyword">name</span>]    //从远程gem仓库安装gem包
+gem <span class="keyword">install</span> [gem <span class="keyword">name</span>] -V    //从远程gem仓库安装gem包，并显示安装的详细信息
+gem <span class="keyword">install</span> -<span class="keyword">l</span> [gem <span class="keyword">name</span>]    //从本机gem仓库安装gem包
+gem <span class="keyword">install</span> [gem <span class="keyword">name</span>] <span class="comment">--version=[ver]    //从远程gem仓库安装指定版本的gem包</span>
+gem <span class="keyword">update</span>                //更新所有已经安装的gem包
+gem <span class="keyword">update</span> [gem <span class="keyword">name</span>]    //更新指定的gem包
+gem <span class="keyword">uninstall</span> [gem <span class="keyword">name</span>]    //删除指定gem包的所有已安装版本
+gem <span class="keyword">uninstall</span> [gem <span class="keyword">name</span>] <span class="comment">--version=[ver]  //删除指定gem包的指定版本</span>
+gem <span class="keyword">list</span>   //显示本地已安装的gem包
+gem -v     //gem版本
+gem <span class="keyword">search</span> [gem <span class="keyword">name</span>] <span class="comment">--both   //从本地和远程服务器上查找含有gem name字符串的包</span>
+gem <span class="keyword">search</span> [gem <span class="keyword">name</span>] <span class="comment">--remoter //只从远程服务器上查找含有gem name字符串的包</span>
+gem <span class="keyword">cleanup</span> //清除所有包旧版本，保留最新版本
+gem sources <span class="comment">--remove https://rubygems.org/  //删除gem源</span>
+gem sources -a <span class="keyword">http</span>://ruby.taobao.org/  //添加gem源
+gem sources -<span class="keyword">l</span>    //显示gem源列表</span>
+</code></pre><h2 id="create_the_first_project_–_‘blog’">create the first project – ‘blog’</h2><pre><code>rails <span class="keyword">new</span> blog
+</code></pre><p>这个过程中可能会让你输入密码，那是在安装bundle时需要权限引起的，直接输入sudo时使用的密码即可。</p>
+<h4 id="创建失败">创建失败</h4><p>创建项目时默认使用的是sqlite3数据库，因此如果你的电脑上没有安装这个软件就会发生创建失败。</p>
+<pre><code>sudo apt-get <span class="keyword">install</span> libsqlite3-dev
+
+sudo gem <span class="keyword">install</span> sqlite3 -V
+</code></pre><p>如果不想用sqlite3来做数据库，比如你想用mysql，可以用一下的操作</p>
+<pre><code>rails <span class="keyword">new</span> blog -d mysql
+</code></pre><h4 id="测试项目">测试项目</h4><pre><code><span class="title">cd</span> blog
+
+rails server
+
+然后打开浏览器，输入  <span class="url">http://localhost:3000</span>  如果出现 <span class="string">'welcome aboard'</span> 页面，说明项目创建成功了
+</code></pre><h4 id="bundle是个啥？">bundle是个啥？</h4><p>同样，bundle也是有很多个意思，首先在英文中是收集、归拢的意思；其次他是Unix/Linux上的一种可执行文件格式；同时他也是用于Android的Activity之间传递数据的类；而在Ruby的世界中呢，Bundle则是用来管理项目中所有gem依赖的工具，该命令只能在一个含有Gemfile的目录下执行，所有Ruby项目的依赖包都在Gemfile中进行配置，此功能是在Rails3中被引入的。</p>
+<h4 id="总结">总结</h4><blockquote>
+<ul>
+<li><p>使用apt-get安装ruby和ruby-dev（带有-dev的为驱动文件），与此同时，gem软件也会随之被安装。可见gem和ruby是紧耦合的关系。gem可执行程序一般放在/usr/bin/目录下。</p>
+</li>
+<li><p>使用gem去安装各种工具，如bundler、rails、nokogiri，这些工具都是使用ruby语言开发的，这些可执行程序一般放在/usr/local/bin/目录下。</p>
+</li>
+<li><p>使用rails去创建项目，在创建项目时会调用bundle程序，当然此调用可以被跳过，使用–skip-bundle即可跳过。</p>
+</li>
+<li><p>使用bundle去安装Gemfile文件中所包含的库文件，这些库文件都是项目中会依赖到的库文件，这些库文件会被安装到gem依赖库目录下，一般为/var/lib/gems/目录，这些库文件是供全局所有项目使用的。与此同时，bundle还修改了Gemfile.lock文件，将刚刚所安装的库文件的名字写入此文件，这是为了此项目能够找到所依赖的库而准备的。简言之，bundle做了两件事：1.安装全局库；2.将安装的库文件写到依赖文件Gemfile.lock中。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="Tips">Tips</h4><p>使用bundle install或者run bundle install时会联网下载gem依赖包，此过程受网速影响有时会很慢，如果你的电脑已经安装了这些依赖包（比如第一次创建一个项目时就将所有的依赖包装全了），当再次创建新项目时就理应没有必要再次下载这些依赖包，但是Gemfile.lock文件中还必须添加这些文件，一个好的办法就是自己在电脑上搭建一个gem服务器，其实很简单，操作如下：</p>
+<p>运行</p>
+<pre><code>gem <span class="keyword">server</span>
+</code></pre><p>会出现如下提示：</p>
+<pre><code>Server started at http://0.0.0.0:8808
+Server started at <span class="link_url">http://</span>[<span class="link_label">::</span>]:8808
+</code></pre><p>说明gem服务已经绑定到本机所有IP的8808端口上，接下来我们就可以通过访问对外IP（比如192.168.1.20）或者本地回环IP（127.0.0.1）的8808端口来访问gem服务器了。</p>
+<p>将Gemfile文件的首行改为：</p>
+<pre><code><span class="built_in">source</span> <span class="string">"http://192.168.1.20:8808/"</span>
+</code></pre><p>或者</p>
+<pre><code><span class="built_in">source</span> <span class="string">"http://127.0.0.1:8808/"</span>
+</code></pre><p>然后运行</p>
+<pre><code><span class="keyword">bundle </span>install
+</code></pre><p>即可快速将这些依赖包的名字写到本地的Gemfile.lock文件中</p>
+<h2 id="use_controller">use controller</h2><pre><code>rails <span class="keyword">generate</span> controller welcome <span class="literal">index</span>
+</code></pre><p>wlecome为一个controller，index为wlecome中的一个action，当在浏览器中敲入 <a href="http://0.0.0.0:3000/welcome/index" target="_blank" rel="external">http://0.0.0.0:3000/welcome/index</a> 时便会跳转到此controller对应的view视图中，也就是一个页面。</p>
+<p>如果显示的页面有问题，可以在Gemfile中添加两句</p>
+<pre><code>gem <span class="string">'therubyracer'</span>, <span class="symbol">platforms:</span> <span class="symbol">:ruby</span>
+gem <span class="string">'execjs'</span>
+</code></pre><p>并把最上面的地址改成</p>
+<pre><code><span class="built_in">source</span> <span class="string">'https://ruby.taobao.org'</span>
+</code></pre><p>然后执行</p>
+<pre><code><span class="keyword">bundle </span>install
+</code></pre><p>安装所需要的软件包</p>
+<h4 id="Tips-1">Tips</h4><pre><code>rails generate -h
+Usage: rails generate GENERATOR [args] [options]
+General options:
+  -<span class="ruby">h, [--help]     <span class="comment"># Print generator's options and usage</span>
+</span>  -<span class="ruby">p, [--pretend]  <span class="comment"># Run but do not make any changes</span>
+</span>  -<span class="ruby">f, [--force]    <span class="comment"># Overwrite files that already exist</span>
+</span>  -<span class="ruby">s, [--skip]     <span class="comment"># Skip files that already exist</span>
+</span>  -<span class="ruby">q, [--quiet]    <span class="comment"># Suppress status output</span></span>
+</code></pre><p>最后一个参数action可以是多个action，比如</p>
+<pre><code>rails generate controller welcome <span class="keyword">index</span> <span class="keyword">new</span> <span class="keyword">create</span> update
+</code></pre><h2 id="resources_方法">resources 方法</h2><p>使用resources 方法可以创建一个资源，资源是指一些列的对象，包括文章、人、动物。资源可以被创建、读取、更新和销毁，简称为CRUD。</p>
+<p>在config/routes.rb文件中添加如下这行：</p>
+<pre><code><span class="rule"><span class="attribute">resources </span>:<span class="value">letters</span></span>
+</code></pre><p><em>注：此处使用复数(s)和不适用复数所创建的资源，在路径上会有很大的差别，具体可以使用rake routes来进行查看，这里尽量使用复数</em></p>
+<p>当资源名为letter时：</p>
+<pre><code>rake routes
+      Prefix Verb   URI Pattern                Controller<span class="id">#Action</span>
+letter_index GET    /<span class="function"><span class="title">letter</span><span class="params">(.:format)</span></span>          letter<span class="id">#index</span>
+             POST   /<span class="function"><span class="title">letter</span><span class="params">(.:format)</span></span>          letter<span class="id">#create</span>
+  new_letter GET    /letter/<span class="function"><span class="title">new</span><span class="params">(.:format)</span></span>      letter<span class="id">#new</span>
+ edit_letter GET    /letter/:id/<span class="function"><span class="title">edit</span><span class="params">(.:format)</span></span> letter<span class="id">#edit</span>
+      letter GET    /letter/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letter<span class="id">#show</span>
+             PATCH  /letter/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letter<span class="id">#update</span>
+             PUT    /letter/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letter<span class="id">#update</span>
+             DELETE /letter/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letter#destroy
+</code></pre><hr>
+<p>当资源名为letters时：</p>
+<pre><code>rake routes
+    letters GET    /<span class="function"><span class="title">letters</span><span class="params">(.:format)</span></span>          letters<span class="id">#index</span>
+            POST   /<span class="function"><span class="title">letters</span><span class="params">(.:format)</span></span>          letters<span class="id">#create</span>
+ new_letter GET    /letters/<span class="function"><span class="title">new</span><span class="params">(.:format)</span></span>      letters<span class="id">#new</span>
+edit_letter GET    /letters/:id/<span class="function"><span class="title">edit</span><span class="params">(.:format)</span></span> letters<span class="id">#edit</span>
+     letter GET    /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters<span class="id">#show</span>
+            PATCH  /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters<span class="id">#update</span>
+            PUT    /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters<span class="id">#update</span>
+            DELETE /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters#destroy
+</code></pre><hr>
+<h4 id="创建对应的文件">创建对应的文件</h4><p>快速创建文件的方法当然是使用rails generate命令，但如果我们直接这么做会发生什么呢，试一下：</p>
+<pre><code>rails <span class="keyword">g</span> controller letters <span class="built_in">index</span> <span class="keyword">new</span> create <span class="keyword">edit</span> show <span class="keyword">update</span> destroy
+</code></pre><p>然后用git比较一下有哪些文件改变了</p>
+<pre><code>:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. <span class="number">24f</span>83d1... A  app/assets/javascripts/letters.coffee
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. afad32d... A  app/assets/stylesheets/letters.css
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. c37c854... A  app/controllers/letters_controller.rb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. cad8d62... A  app/helpers/letters_helper.rb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. e47e0ab... A  app/views/letters/create.html.erb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. a7882fd... A  app/views/letters/destroy.html.erb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. b1e28b1... A  app/views/letters/edit.html.erb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. ee73dff... A  app/views/letters/index.html.erb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. c1ab9a4... A  app/views/letters/<span class="keyword">new</span>.html.erb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. <span class="number">23</span>ab1a4... A  app/views/letters/show.html.erb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. <span class="number">487</span>c48a... A  app/views/letters/update.html.erb
+:<span class="number">100644</span> <span class="number">100644</span> c9b29fe... <span class="number">6</span>df43b7... M  config/routes.rb
+:<span class="number">000000</span> <span class="number">100644</span> <span class="number">0000000.</span>.. <span class="number">831</span>ba05... A  test/controllers/letters_controller_test.rb
+</code></pre><p>我们发现，除了生成我们想要的那一系列文件外，还对config/routes.rb文件进行了修改，然后我们继续看一下这个文件做了哪些改变：<br>     Rails.application.routes.draw do</p>
+<pre><code>+  get <span class="symbol">'letters</span>/index'
++
++  get <span class="symbol">'letters</span>/new'
++
++  get <span class="symbol">'letters</span>/create'
++
++  get <span class="symbol">'letters</span>/edit'
++
++  get <span class="symbol">'letters</span>/show'
++
++  get <span class="symbol">'letters</span>/update'
++
++  get <span class="symbol">'letters</span>/destroy'
++
+   # <span class="type">The</span> priority is based upon <span class="built_in">order</span> <span class="keyword">of</span> creation: first created -&gt; highest    priority.
+   # <span class="type">See</span> how all your routes lay out <span class="keyword">with</span> <span class="string">"rake routes"</span>.
+</code></pre><p>添加的内容是新生成文件的路由，再来用rake routes来看一下路由状况发生了什么变化。</p>
+<pre><code>rake routes
+         Prefix Verb   URI Pattern                 Controller<span class="id">#Action</span>
+  letters_index GET    /letters/<span class="function"><span class="title">index</span><span class="params">(.:format)</span></span>    letters<span class="id">#index</span>
+    letters_new GET    /letters/<span class="function"><span class="title">new</span><span class="params">(.:format)</span></span>      letters<span class="id">#new</span>
+ letters_create GET    /letters/<span class="function"><span class="title">create</span><span class="params">(.:format)</span></span>   letters<span class="id">#create</span>
+   letters_edit GET    /letters/<span class="function"><span class="title">edit</span><span class="params">(.:format)</span></span>     letters<span class="id">#edit</span>
+   letters_show GET    /letters/<span class="function"><span class="title">show</span><span class="params">(.:format)</span></span>     letters<span class="id">#show</span>
+ letters_update GET    /letters/<span class="function"><span class="title">update</span><span class="params">(.:format)</span></span>   letters<span class="id">#update</span>
+letters_destroy GET    /letters/<span class="function"><span class="title">destroy</span><span class="params">(.:format)</span></span>  letters<span class="id">#destroy</span>
+        letters GET    /<span class="function"><span class="title">letters</span><span class="params">(.:format)</span></span>          letters<span class="id">#index</span>
+                POST   /<span class="function"><span class="title">letters</span><span class="params">(.:format)</span></span>          letters<span class="id">#create</span>
+     new_letter GET    /letters/<span class="function"><span class="title">new</span><span class="params">(.:format)</span></span>      letters<span class="id">#new</span>
+    edit_letter GET    /letters/:id/<span class="function"><span class="title">edit</span><span class="params">(.:format)</span></span> letters<span class="id">#edit</span>
+         letter GET    /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters<span class="id">#show</span>
+                PATCH  /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters<span class="id">#update</span>
+                PUT    /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters<span class="id">#update</span>
+                DELETE /letters/:<span class="function"><span class="title">id</span><span class="params">(.:format)</span></span>      letters#destroy
+</code></pre><p>我们会发现，相同的文件会对应两个不同的前缀，这样会不会在之后的开发中造成问题呢？现在我还不清楚，为了避免以后发生问题，我们将新多出来的路由地址给去掉。（在config/routes.rb中注释掉）</p>
+<h4 id="创建表单">创建表单</h4><p>修改new的文件</p>
+<pre><code><span class="xml"></span>&lt;%=<span class="ruby"> form_for <span class="symbol">:letter</span>, <span class="symbol">url:</span> letters_path <span class="keyword">do</span> |f| </span>%&gt;<span class="xml">
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>
+    </span>&lt;%=<span class="ruby"> f.label <span class="symbol">:title</span> </span>%&gt;<span class="xml"><span class="tag">&lt;<span class="title">br</span>&gt;</span>
+    </span>&lt;%=<span class="ruby"> f.text_field <span class="symbol">:title</span> </span>%&gt;<span class="xml">
+  <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>
+    </span>&lt;%=<span class="ruby"> f.label <span class="symbol">:text</span> </span>%&gt;<span class="xml"><span class="tag">&lt;<span class="title">br</span>&gt;</span>
+    </span>&lt;%=<span class="ruby"> f.text_area <span class="symbol">:text</span> </span>%&gt;<span class="xml">
+  <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>
+    </span>&lt;%=<span class="ruby"> f.submit </span>%&gt;<span class="xml">
+  <span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</span>&lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;<span class="xml"></span>
+</code></pre><p>letters_path代表路由表中letters前缀对应的文件地址，url: letters_path的意思是在表单提交后跳转到letters_path的post方法对应的页面上，即跳转到create页面。</p>
+<h4 id="表单响应">表单响应</h4><p>提交表单后即跳转到create页面，在create页面添加如下内容，便可以显示提交的内容：</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">create</span></span>
+  render <span class="symbol">plain:</span> params[<span class="symbol">:article</span>].inspect
+<span class="keyword">end</span>
+</code></pre><p>显示的结果类似如下：</p>
+<pre><code>{<span class="string">"title"</span>=&gt;<span class="string">"123"</span>, <span class="string">"text"</span>=&gt;<span class="string">"test"</span>}
+</code></pre><p>这只是将表单显示出来，但并没有太多实际的意义。</p>
+<h2 id="使用model">使用model</h2><h4 id="创建模型">创建模型</h4><p>在 Rails 中，模型的名字使用单数，对应的数据表名使用复数。</p>
+<pre><code>bin/rails generate model Letter title:<span class="type">string</span> <span class="type">text</span>:<span class="type">text</span>
+</code></pre><p>Letter为模型的名字；</p>
+<p>title和text为自动添加到letters数据表中的属性；</p>
+<p>string和text为这两个属性的类型，即字符串类型和文本类型</p>
+<p>在这里，数据表和模型之间会自动建立映射，所以不用担心此问题。</p>
+<h4 id="运行迁移">运行迁移</h4><p>通过model命令生成的db/migrate/20150402055237_create_letters.rb文件，生成数据表，命令如下：</p>
+<pre><code><span class="tag">rake</span> <span class="rule"><span class="attribute">db</span>:<span class="value">migrate</span></span>
+</code></pre><p>我们发现会生成文件 db/schema.rb</p>
+<h4 id="调用模型存储数据">调用模型存储数据</h4><p>修改create函数如下：</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">create</span></span>
+  <span class="variable">@letter</span> = <span class="constant">Letter.</span>new(params[<span class="symbol">:letter</span>])
+
+  <span class="variable">@letter</span>.save
+  redirect_to <span class="variable">@letter</span>
+<span class="keyword">end</span>
+</code></pre><p>在 Rails 中，每个模型可以使用各自的属性初始化，自动映射到数据库字段上。create 动作中的第一行就是这个目的（params[:letter] 就是我们要获取的属性）。@article.save 的作用是把模型保存到数据库中。保存完后转向 show 动作。稍后再编写 show 动作。</p>
+<p>但代码如上去写会有问题，大家可是用浏览器试试看。</p>
+<p>把命令改成如下：</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">create</span></span>
+  <span class="variable">@letter</span> = <span class="constant">Letter.</span>new(letter_params)
+
+  <span class="variable">@letter</span>.save
+  redirect_to <span class="variable">@letter</span>
+<span class="keyword">end</span>
+
+private
+  <span class="function"><span class="keyword">def</span> <span class="title">letter_params</span></span>
+    params.require(<span class="symbol">:letter</span>).permit(<span class="symbol">:title</span>, <span class="symbol">:text</span>)
+  <span class="keyword">end</span>
+</code></pre><p>私有函数letter_params是用来明确哪些参数可在控制器中使用。其中permit这个方法就是允许title和text属性在动作中使用。</p>
+<p>这里使用的Letter对象就是我们生成的模型</p>
+<p>现在再在new页面进行提交，就会将数据存储到数据库中了。</p>
+<h2 id="显示存储内容">显示存储内容</h2><h4 id="显示单封信">显示单封信</h4><p>将信件存储到数据库后我们还需要将他再显示出来，通过show函数即可实现。先看一下show的路由信息。</p>
+<pre><code>letter <span class="constant">GET </span>   /letters/<span class="symbol">:id</span>(.<span class="symbol">:format</span>)      letters<span class="comment">#show</span>
+</code></pre><p>其中有个id，这个id指的就是信件在数据库中的编号，也就是信件的id。<br>修改show函数</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">show</span></span>
+  <span class="variable">@letter</span> = <span class="constant">Letter.</span>find(params[<span class="symbol">:id</span>])
+<span class="keyword">end</span>
+</code></pre><p>shou的页面改为</p>
+<pre><code><span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">strong</span>&gt;</span>Title:<span class="tag">&lt;/<span class="title">strong</span>&gt;</span>
+  </span>&lt;%=<span class="ruby"> <span class="variable">@letter</span>.title </span>%&gt;<span class="xml">
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">strong</span>&gt;</span>Text:<span class="tag">&lt;/<span class="title">strong</span>&gt;</span>
+  </span>&lt;%=<span class="ruby"> <span class="variable">@letter</span>.text </span>%&gt;<span class="xml">
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span>
+</code></pre><p>Letter.find就是查找对应id的信件</p>
+<h4 id="Tips-2">Tips</h4><p>这里你可能会遇到一个问题，打开某个信件时提示没有title方法，这可能是因为你添加私有函数letter_params导致的，private关键字会一直生效到下一个类似关键字（public, private, protected）或者类结束为止，而只有类中的public 方法才能在view中被调用，因此这个show方法被错误的变成private类型导致在view中无法被调用。</p>
+<h4 id="列出所有信件">列出所有信件</h4><p>在index中列出所有文章，修改index函数</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">index</span></span>
+  <span class="variable">@letters</span> = <span class="constant">Letter.</span>all
+<span class="keyword">end</span>
+</code></pre><p>修改视图</p>
+<pre><code><span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Listing letters<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">table</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">th</span>&gt;</span>Title<span class="tag">&lt;/<span class="title">th</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">th</span>&gt;</span>Text<span class="tag">&lt;/<span class="title">th</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+
+  </span>&lt;%<span class="ruby"> <span class="variable">@letters</span>.each <span class="keyword">do</span> |letter| </span>%&gt;<span class="xml">
+    <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">td</span>&gt;</span></span>&lt;%=<span class="ruby"> letter.title </span>%&gt;<span class="xml"><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+      <span class="tag">&lt;<span class="title">td</span>&gt;</span></span>&lt;%=<span class="ruby"> letter.text </span>%&gt;<span class="xml"><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+  </span>&lt;%<span class="ruby"> <span class="keyword">end</span> </span>%&gt;<span class="xml">
+<span class="tag">&lt;/<span class="title">table</span>&gt;</span></span>
+</code></pre><h2 id="跳来跳去">跳来跳去</h2><p>在各个页面之间添加跳转，包括控制器间跳转和控制器内跳转</p>
+<h4 id="控制器间跳转">控制器间跳转</h4><p>创建一个welcome控制器和action，编辑index的视图</p>
+<pre><code>&lt;<span class="variable">%=</span> link_to <span class="string">'Letters Wall'</span>, controller: <span class="string">'letters'</span><span class="variable">%&gt;</span>
+</code></pre><p>在控制器之间跳转时要加上controller， 之后的letters为控制器的名字而不是路由标识</p>
+<p><em>注：好像不加关键字controller而是直接用路由标识也可以，就像控制器内跳转一样。</em></p>
+<h4 id="控制器内跳转">控制器内跳转</h4><pre><code>&lt;<span class="variable">%=</span> link_to <span class="string">'New Letter'</span>, new_letter_path<span class="variable">%&gt;</span>
+</code></pre><p>在控制器内跳转只需指定对应的路由标识即可</p>
+<h2 id="添加css、js和图片">添加css、js和图片</h2><h4 id="添加css文件">添加css文件</h4><p>内部css就不说了，直接在view中的文件里添加即可。</p>
+<p>外部css文件要放到app/assets/stylesheets/文件夹下。</p>
+<h4 id="添加js脚本文件">添加js脚本文件</h4><p>内部js脚本就直接写在view中的文件里即可。</p>
+<p>外部的js文件要放到app/assets/javascripts/文件夹下。好像不需要在view中文件里面添加这个脚本文件的路径就可访问的到。</p>
+<h4 id="图片文件">图片文件</h4><p>图片文件要放到app/assets/images/文件夹下，在view中文件里面直接引用此图片文件的名字即可被访问到</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/04/07/ruby.elementary2/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/04/05/sed/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/04/06/ruby.elementary/" data-title="Ruby elementary 1" data-url="http://yoursite.com/2015/04/06/ruby.elementary/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-04-06 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Ruby/">Ruby<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#ruby_install"><span class="toc-article-text">ruby install</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#rails_install"><span class="toc-article-text">rails install</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#安装失败"><span class="toc-article-text">安装失败</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#gem是个啥？"><span class="toc-article-text">gem是个啥？</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#gem命令"><span class="toc-article-text">gem命令</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#create_the_first_project_–_‘blog’"><span class="toc-article-text">create the first project – ‘blog’</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#创建失败"><span class="toc-article-text">创建失败</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#测试项目"><span class="toc-article-text">测试项目</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#bundle是个啥？"><span class="toc-article-text">bundle是个啥？</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#总结"><span class="toc-article-text">总结</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Tips"><span class="toc-article-text">Tips</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#use_controller"><span class="toc-article-text">use controller</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Tips-1"><span class="toc-article-text">Tips</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#resources_方法"><span class="toc-article-text">resources 方法</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#创建对应的文件"><span class="toc-article-text">创建对应的文件</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#创建表单"><span class="toc-article-text">创建表单</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#表单响应"><span class="toc-article-text">表单响应</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#使用model"><span class="toc-article-text">使用model</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#创建模型"><span class="toc-article-text">创建模型</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#运行迁移"><span class="toc-article-text">运行迁移</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#调用模型存储数据"><span class="toc-article-text">调用模型存储数据</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#显示存储内容"><span class="toc-article-text">显示存储内容</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#显示单封信"><span class="toc-article-text">显示单封信</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#Tips-2"><span class="toc-article-text">Tips</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#列出所有信件"><span class="toc-article-text">列出所有信件</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#跳来跳去"><span class="toc-article-text">跳来跳去</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#控制器间跳转"><span class="toc-article-text">控制器间跳转</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#控制器内跳转"><span class="toc-article-text">控制器内跳转</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#添加css、js和图片"><span class="toc-article-text">添加css、js和图片</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#添加css文件"><span class="toc-article-text">添加css文件</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#添加js脚本文件"><span class="toc-article-text">添加js脚本文件</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#图片文件"><span class="toc-article-text">图片文件</span></a></li></ol></li></ol></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

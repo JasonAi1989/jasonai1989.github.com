@@ -1,0 +1,512 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>shell笔记 | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="判断 – if语法if [  ]
+then
+    command
+else
+    command
+fi
+或者
+if [  ]；then
+    command
+else
+    command
+fi">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="shell笔记"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> shell笔记</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h2 id="判断_–_if">判断 – if</h2><h4 id="语法">语法</h4><pre><code><span class="keyword">if</span> [  ]
+<span class="keyword">then</span>
+    <span class="command"><span class="keyword">command</span></span>
+<span class="keyword">else</span>
+    <span class="command"><span class="keyword">command</span></span>
+fi
+</code></pre><p>或者</p>
+<pre><code><span class="keyword">if</span> [  ]；<span class="keyword">then</span>
+    <span class="command"><span class="keyword">command</span></span>
+<span class="keyword">else</span>
+    <span class="command"><span class="keyword">command</span></span>
+fi
+</code></pre><a id="more"></a>
+<h4 id="判断变量是否等于某个值">判断变量是否等于某个值</h4><pre><code>c=<span class="number">1</span>
+<span class="keyword">if</span> [ <span class="variable">$c</span> -eq <span class="number">4</span> ] 或者 <span class="keyword">if</span> [ <span class="variable">$c</span> = <span class="number">4</span> ]
+<span class="keyword">then</span>
+    echo yes
+fi
+</code></pre><h4 id="判断变量是否等于某个字符串">判断变量是否等于某个字符串</h4><pre><code>a=<span class="string">"abc"</span>
+<span class="keyword">if</span> [ <span class="string">"<span class="variable">$a</span>"</span> = <span class="string">"abc"</span> ] 
+<span class="keyword">then</span>
+    <span class="built_in">echo</span> <span class="string">"equal"</span>
+<span class="keyword">fi</span>
+</code></pre><p><strong><em>注：此处不能用if [ “$a” -eq “abc” ]会报错</em></strong></p>
+<h4 id="判断字符串、输入参数是否为空">判断字符串、输入参数是否为空</h4><pre><code><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$1</span>"</span> ]
+<span class="keyword">then</span>
+    <span class="built_in">echo</span> <span class="string">"you don't have input arg"</span>
+    <span class="built_in">exit</span>
+<span class="keyword">fi</span>
+</code></pre><h4 id="判断文件夹是否为空、是否存在">判断文件夹是否为空、是否存在</h4><pre><code>dir=/home
+<span class="keyword">if</span> [ ! <span class="operator">-d</span> <span class="string">"<span class="variable">$dir</span>"</span> ]
+<span class="keyword">then</span>
+    <span class="built_in">echo</span> <span class="string">"<span class="variable">$dir</span> is not a directory"</span>
+    <span class="built_in">exit</span>
+<span class="keyword">fi</span>
+</code></pre><h4 id="判断两个字符串是否相等">判断两个字符串是否相等</h4><pre><code><span class="keyword">if</span> [ <span class="string">"$file_1"</span> != <span class="string">"$file"</span> ]
+<span class="keyword">then</span>
+    file=<span class="variable">$file</span>_1
+<span class="keyword">else</span>
+    file=<span class="variable">$file</span>_2
+fi
+</code></pre><h2 id="字符串操作">字符串操作</h2><p>例：</p>
+<pre><code><span class="built_in">string</span>=<span class="string">"123!@#$%^&amp;*()_+"</span>
+position=<span class="number">3</span>
+length=<span class="number">4</span>
+</code></pre><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#<span class="keyword">string</span>&#125; <span class="variable">$string</span>的长度</span><br><span class="line">    $&#123;#<span class="keyword">string</span>&#125;  # <span class="number">15</span></span><br><span class="line">    </span><br><span class="line">$&#123;<span class="keyword">string</span>:position&#125; 在<span class="variable">$string</span>中，从位置<span class="variable">$position</span>开始提取子串,第一个字符位置为<span class="number">0</span></span><br><span class="line">    $&#123;<span class="keyword">string</span>:position&#125; # !<span class="variable">@#</span><span class="variable">$%</span>^&amp;<span class="variable">*(</span>)_+</span><br><span class="line">  </span><br><span class="line">$&#123;<span class="keyword">string</span>:position:length&#125;  在<span class="variable">$string</span>中, 从位置<span class="variable">$position</span>开始提取长度为<span class="variable">$length</span>的子串  </span><br><span class="line">    $&#123;<span class="keyword">string</span>:position:length&#125;  # !<span class="variable">@#</span>$</span><br><span class="line">    </span><br><span class="line">$&#123;<span class="keyword">string</span>#<span class="variable">*substring</span>&#125;  从左向右，截取第一个<span class="keyword">substring</span>之后的内容，此处<span class="keyword">substring</span>不是变量而是具体的字符串</span><br><span class="line">    $&#123;<span class="keyword">string</span>#<span class="variable">*@</span>#&#125;   # <span class="variable">$%</span>^&amp;<span class="variable">*(</span>)_+</span><br><span class="line"></span><br><span class="line">$&#123;<span class="keyword">string</span>##<span class="variable">*substring</span>&#125;   从左向右，截取最后一个<span class="keyword">substring</span>之后的内容，此处<span class="keyword">substring</span>不是变量而是具体的字符串</span><br><span class="line">    $&#123;<span class="keyword">string</span>##<span class="variable">*@</span>#&#125;  # <span class="variable">$%</span>^&amp;<span class="variable">*(</span>)_+</span><br><span class="line">    </span><br><span class="line">$&#123;<span class="keyword">string</span><span class="variable">%substring</span><span class="variable">*&#125;</span>  从右向左，截取第一个<span class="keyword">substring</span>之后的内容</span><br><span class="line">    $&#123;<span class="keyword">string</span><span class="variable">%@</span>#<span class="variable">*&#125;</span>    # <span class="number">123</span>!</span><br><span class="line"></span><br><span class="line">$&#123;<span class="keyword">string</span><span class="variable">%%</span><span class="keyword">substring</span><span class="variable">*&#125;</span>  从右向左，截取最后一个<span class="keyword">substring</span>之后的内容</span><br><span class="line">    $&#123;<span class="keyword">string</span><span class="variable">%%</span><span class="variable">@#</span><span class="variable">*&#125;</span>   # <span class="number">123</span>!</span><br><span class="line">    </span><br><span class="line">$&#123;<span class="keyword">string</span>/<span class="keyword">substring</span>/replacement&#125;  使用replacement来代替第一个匹配的<span class="keyword">substring</span>，这里也是用字符串而不是变量</span><br><span class="line">    $&#123;<span class="keyword">string</span>/<span class="variable">@#</span>/ER&#125;  # <span class="number">123</span>!ER<span class="variable">$%</span>^&amp;<span class="variable">*(</span>)_+</span><br><span class="line"></span><br><span class="line">$&#123;<span class="keyword">string</span><span class="comment">//substring/replacement&#125;  使用replacement代替所有匹配的substring                 </span></span><br><span class="line">    $&#123;<span class="keyword">string</span><span class="comment">//@#/ER&#125; # 123!ER$%^&amp;*()_+</span></span><br></pre></td></tr></table></figure>
+<h2 id="参数">参数</h2><p>$0 至 $9代表参数<br>$@ 代表所有参数</p>
+<h2 id="取变量、执行命令、操作">取变量、执行命令、操作</h2><p>$a  取变量a的值</p>
+<p>$(pwd)  把（）内的内容当作命令去执行</p>
+<p>${ }  做某些操作，比如截取字符串会用到这个 </p>
+<h2 id="字符串和变量拼接">字符串和变量拼接</h2><p>“hello $a” 或者 “hello “$a</p>
+<h2 id="ps_aux_|_grep_app">ps aux | grep app</h2><p>让返回的结果只包含需要查询的结果，不包含grep app</p>
+<pre><code><span class="keyword">ps</span> aux | <span class="keyword">grep</span> \[<span class="keyword">a</span>]<span class="keyword">pp</span>    
+</code></pre><p>牛逼的操作</p>
+<h2 id="for循环">for循环</h2><p>格式：</p>
+<pre><code><span class="keyword">for</span> var <span class="operator">in</span> word1 word2 ....
+<span class="operator">in</span>
+    <span class="command"><span class="keyword">command</span></span>
+    <span class="command"><span class="keyword">command</span></span>
+done
+</code></pre><p>   谈到循环，就不得不说$@变量，它代表该shell脚本的所有参数。所以，要写一个命令行中键入的所有参数的程序就应该向下面这样：</p>
+<pre><code><span class="keyword">for</span> arg <span class="keyword">in</span> <span class="string">"<span class="variable">$@</span>"</span>
+<span class="keyword">do</span>
+    <span class="built_in">echo</span> <span class="variable">$arg</span>
+<span class="keyword">done</span>
+</code></pre><p>说到$@就不得不说for循环的另一种形式，就是缺省参数</p>
+<pre><code><span class="keyword">for</span> var
+<span class="built_in">do</span>
+    <span class="command"><span class="keyword">command</span></span>
+    <span class="command"><span class="keyword">command</span></span>
+done
+</code></pre><p>上面的程序等价于：</p>
+<pre><code><span class="keyword">for</span> var <span class="keyword">in</span> <span class="string">"<span class="variable">$@</span>"</span>
+<span class="keyword">do</span>
+    <span class="built_in">command</span>
+    <span class="built_in">command</span>
+<span class="keyword">done</span>
+</code></pre><p>下面的代码中，变量i在每次迭代的过程里都会保存一个字符，范围从a到z:</p>
+<pre><code><span class="keyword">for</span> i <span class="keyword">in</span> {a..z}
+<span class="keyword">do</span> 
+    actions
+<span class="keyword">done</span>
+</code></pre><p>for 循环也可以采用C语言中的for循环格式。例如：</p>
+<pre><code><span class="keyword">for</span> (( <span class="built_in">i</span>=<span class="number">0</span>; <span class="built_in">i</span>&lt;<span class="number">10</span>; <span class="built_in">i</span>++))
+<span class="cell">{
+    commands;
+}</span>
+</code></pre><p>在此说一下常用的两个结构：</p>
+<p>1.</p>
+<pre><code><span class="keyword">for</span> i <span class="keyword">in</span> $(seq <span class="number">1</span> <span class="number">100</span>)
+do 
+    echo <span class="variable">$i</span> 
+done
+</code></pre><p>2.</p>
+<pre><code><span class="keyword">for</span> (( i = <span class="number">1</span> ; <span class="variable">$i</span> &lt;= <span class="number">100</span>; i++ ))
+do 
+     echo <span class="variable">$i</span>; 
+done
+</code></pre><h2 id="while循环">while循环</h2><pre><code><span class="keyword">while</span> <span class="built_in">command</span>1
+<span class="keyword">do</span>
+    <span class="built_in">command</span>
+    <span class="built_in">command</span>
+<span class="keyword">done</span>
+</code></pre><h2 id="break和continue仍然可以使用">break和continue仍然可以使用</h2><h2 id="变量类型">变量类型</h2><p>不管是出现在函数里面还是外面的变量都是全局变量，只有被定义成local的变量才是局部变量   </p>
+<pre><code><span class="built_in">local</span> <span class="operator">a</span>       
+</code></pre><p>则a是局部变量，只能在作用域内有效，此时如果和全局变量重名，则在作用域内局部变量优先被使用</p>
+<h2 id="shell脚本的续行符为_\">shell脚本的续行符为   \</h2><h2 id="case结构">case结构</h2><pre><code><span class="keyword">case</span>  $val <span class="operator">in</span>
+<span class="operator">a</span>)
+    <span class="command"><span class="keyword">command</span>;;</span>
+c)  
+    <span class="command"><span class="keyword">command</span>;;</span>
+*)
+    <span class="command"><span class="keyword">command</span>;;</span>
+esac
+</code></pre><h2 id="将变量的内容追加到某个文件中">将变量的内容追加到某个文件中</h2><pre><code>echo <span class="string">"[$file]"</span> | cat &gt;&gt; <span class="variable">$log</span>
+</code></pre><h2 id="find">find</h2><p>find发现的文件含有空格，可以在空格的前面加上\然后在后续进行解析，合成后面可用的字符串,像其他一些命令使用这种带空格的字符串时可以加上双引号，便可以正常使用</p>
+<pre><code>find <span class="variable">$instead</span>_path -type f|sed -e <span class="string">'s/ /\\ /g'</span>
+</code></pre><h2 id="转义字符_\">转义字符  \</h2><h2 id="函数的返回值">函数的返回值</h2><pre><code><span class="variable">$?</span>  可以获取上一个函数的返回值
+</code></pre><h2 id="从命令行获取内容">从命令行获取内容</h2><pre><code><span class="command">read</span> val
+</code></pre><p>可以将内容读到val中，以回车为结束符</p>
+<h2 id="函数">函数</h2><pre><code> <span class="tag">funcname</span>()
+{}
+</code></pre><p>函数可以有返回值，函数内的局部变量用local定义，如果没有local则是全局变量<br>函数调用时</p>
+<pre><code>funcname <span class="variable">$file</span>
+</code></pre><p>直接加变量即可，不需要小括号</p>
+<h2 id="if时多个判断条件">if时多个判断条件</h2><pre><code><span class="keyword">if</span> [ <span class="string">"<span class="variable">${file:0-11}</span>"</span> = <span class="string">".properties"</span> ] || [ <span class="string">"<span class="variable">${file:0-4}</span>"</span> = <span class="string">".pdf"</span> ] || [ <span class="string">"<span class="variable">${file:0-5}</span>"</span> = <span class="string">".html"</span> ]
+</code></pre><p>可以使用 || 和 &amp;&amp;</p>
+<h2 id="变量说明">变量说明</h2><pre><code><span class="variable">$$</span>
+</code></pre><p>Shell本身的PID（ProcessID）</p>
+<pre><code><span class="variable">$!</span>
+</code></pre><p>Shell最后运行的后台Process的PID</p>
+<pre><code><span class="variable">$?</span>
+</code></pre><p>最后运行的命令的结束代码（返回值）</p>
+<pre><code><span class="variable">$-</span>
+</code></pre><p>使用Set命令设定的Flag一览</p>
+<pre><code><span class="variable">$*</span>
+</code></pre><p>所有参数列表。如”$*”用「”」括起来的情况、以”$1 $2 … $n”的形式输出所有参数。</p>
+<pre><code><span class="variable">$@</span>
+</code></pre><p>所有参数列表。如”$@”用「”」括起来的情况、以”$1” “$2” … “$n” 的形式输出所有参数。</p>
+<pre><code>$<span class="preprocessor">#</span>
+</code></pre><p>添加到Shell的参数个数</p>
+<pre><code><span class="variable">$0</span>
+</code></pre><p>Shell本身的文件名</p>
+<pre><code><span class="variable">$1</span>～<span class="variable">$n</span>
+</code></pre><p>添加到Shell的各参数值。$1是第1参数、$2是第2参数…。</p>
+<h2 id="变量自增的实现方法">变量自增的实现方法</h2><pre><code><span class="number">1</span>. i=`expr <span class="variable">$i</span> + <span class="number">1</span>`;
+<span class="number">2</span>. <span class="keyword">let</span> i+=<span class="number">1</span>;
+<span class="number">3</span>. ((i++));
+<span class="number">4</span>. i=$[<span class="variable">$i</span>+<span class="number">1</span>];
+<span class="number">5</span>. i=$(( <span class="variable">$i</span> + <span class="number">1</span> ))
+</code></pre><p>最简单的方式是使用let命令，let命令可以直接执行基本的算数操作，当使用let时，变量名之前不需要再添加$，例如</p>
+<pre><code>arg1=<span class="number">10</span>
+arg2=<span class="number">23</span>
+<span class="keyword">let</span> <span class="literal">result</span>=arg1+arg2
+echo $<span class="literal">result</span>
+</code></pre><p>自加：      </p>
+<pre><code><span class="built_in">let</span> i++
+</code></pre><p>自减：</p>
+<pre><code>let i<span class="comment">--</span>
+</code></pre><p>简写形式 </p>
+<pre><code><span class="built_in">let</span> arg+=<span class="number">6</span>
+</code></pre><p>其他四种方法也可以做算数运算，但只支持整数运算，不支持浮点型</p>
+<h2 id="与文件存在与否的判断">与文件存在与否的判断</h2><pre><code>-<span class="ruby">e 是否存在
+</span>-<span class="ruby">f 是否为普通文件
+</span>-<span class="ruby">d 是否为目录
+</span>-<span class="ruby">s 是否为空的文件
+</span>-<span class="ruby">p 是否为管道文件
+</span>-<span class="ruby">b 是否为块设备文件
+</span>-<span class="ruby">c 是否为字符设备文件
+</span>-<span class="ruby"><span class="constant">L</span> 是否为软链接
+</span>-<span class="ruby"><span class="constant">S</span> 是否<span class="constant">Socket</span>文件</span>
+</code></pre><h2 id="与文件权限有关的判断">与文件权限有关的判断</h2><pre><code>-<span class="ruby">r 是否有可读的权限
+</span>-<span class="ruby">w 是否有可写的权限
+</span>-<span class="ruby">x 是否有可执行权限
+</span>-<span class="ruby">u 是否有特权位
+</span>-<span class="ruby">g 是否有组特权位
+</span>-<span class="ruby">k 是否有t位，即粘贴位</span>
+</code></pre><h2 id="两个文件的比较判断">两个文件的比较判断</h2><pre><code>-<span class="ruby">nt 比较file1比file2新
+</span>-<span class="ruby">ot 比较file1比file2旧
+</span>-<span class="ruby">ef 比较file1和file2是否为同一个文件，
+</span>一般用于判断硬链接
+</code></pre><h2 id="整数之间的大小判断">整数之间的大小判断</h2><pre><code>-<span class="ruby">eq 相等
+</span>-<span class="ruby">ne 不等于
+</span>-<span class="ruby">gt 大于
+</span>-<span class="ruby">ge 大于等于
+</span>-<span class="ruby">lt 小于
+</span>-<span class="ruby">le 小于等于</span>
+</code></pre><h2 id="字符串之间的判断">字符串之间的判断</h2><pre><code>-z 是否为空字符串
+-n 是否为非空字符串
+<span class="keyword">str1 </span>= <span class="keyword">str2 </span>是否相等
+<span class="keyword">str1 </span>!= <span class="keyword">str2 </span>是否不等
+</code></pre><h2 id="多重条件判断">多重条件判断</h2><pre><code>-<span class="ruby">a 两个条件同时满足，就为真，相当于<span class="keyword">and</span>
+</span>-<span class="ruby">o 两个条件满足其一，就为真，相当于<span class="keyword">or</span></span>
+</code></pre><p> 如果使用 [[ ]], 则多重判断可以使用:</p>
+<pre><code><span class="string">[[ xxx &amp;&amp; xxx || xxx ]]</span> 
+</code></pre><p>的形式.</p>
+<h2 id="获取某个进程的pid的方法">获取某个进程的pid的方法</h2><p>可以使用ps+grep，然后在进行解析的方式获取到；</p>
+<p>也可以使用命令pgrep获取，这种方法很好用，但缺点是不能根据信息进行pid的查找，只能根据可执行文件的名字进行查找</p>
+<p>在使用pgrep时最好加上-f选项，以便使用完整文件名进行匹配，-l会列出所有和程序名匹配的进程以及其进程名</p>
+<h2 id="对文件添加特殊保护">对文件添加特殊保护</h2><p>linux lsattr  chattr</p>
+<h4 id="chattr命令的用法：">chattr命令的用法：</h4><p>chattr [ -RV ] [ -v version ] [ mode ] files…</p>
+<p>最关键的是在[mode]部分，[mode]部分是由+-=和[ASacDdIijsTtu]这些字符组合的，这部分是用来控制文件的属性。</p>
+<pre><code>+ ：在原有参数设定基础上，追加参数。
+<span class="bullet">- </span>：在原有参数设定基础上，移除参数。
+<span class="header">= ：更新为指定参数设定。</span>
+A：文件或目录的 atime (access time)不可被修改(modified), 可以有效预防例如手提电脑磁盘I/O错误的发生。
+S：硬盘I/O同步选项，功能类似sync。
+a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。
+c：即compresse，设定文件是否经压缩后再存储。读取时需要经过自动解压操作。
+d：即no dump，设定文件不能成为dump程序的备份目标。
+i：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。
+j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。
+s：保密性地删除文件或目录，即硬盘空间被全部收回。
+u：与s相反，当设定为u时，数据内容其实还存在磁盘中，可以用于undeletion.
+</code></pre><p>各参数选项中常用到的是a和i。a选项强制只可添加不可删除，多用于日志系统的安全设定。而i是更为严格的安全设定，只有superuser (root) 或具有CAP_LINUX_IMMUTABLE处理能力（标识）的进程能够施加该选项。</p>
+<p>freebsd ls -lo   chflags</p>
+<pre><code>chattr +<span class="tag">i</span> = chflags schg
+chattr -<span class="tag">i</span> = chflags noschg
+</code></pre><h2 id="浮点数运算">浮点数运算</h2><p>bash无法进行浮点数运算，需要借助bc，awk</p>
+<p>例：</p>
+<pre><code>c=$(echo <span class="string">"5.01-4*2.0"</span>|bc)
+echo <span class="variable">$c</span>
+</code></pre><p>或者</p>
+<pre><code>c=$(awk <span class="string">'BEGIN{print 7.01*5-4.01 }'</span>)
+echo <span class="variable">$c</span>
+</code></pre><h2 id="在shell_中$()_与_``等效。_中间包含命令语句执行，返回执行结果。">在shell 中$() 与 ``等效。 中间包含命令语句执行，返回执行结果。</h2><h2 id="使用ps显示某个进程的父进程pid">使用ps显示某个进程的父进程pid</h2><pre><code><span class="title">ps</span> -axo pid,ppid,comm,pcpu,pmem
+</code></pre><h2 id="用awk打印某一列">用awk打印某一列</h2><pre><code><span class="title">awk</span> <span class="string">'{print <span class="variable">$1</span>}'</span> 打印第一列
+awk <span class="string">'{print <span class="variable">$1</span>,<span class="variable">$2</span>}'</span> 打印第一二列
+awk <span class="string">'{print <span class="variable">$1</span>"@#"<span class="variable">$2</span>}'</span> 和字符串打印到一起
+</code></pre><h2 id="find命令的参数">find命令的参数</h2><pre><code>-<span class="string">type:</span>查找某一类型文档
+<span class="string">b:</span>块设备文档
+<span class="string">d:</span>目录
+<span class="string">c:</span>字符设备文档
+<span class="string">P:</span>管道文档
+<span class="string">l:</span>符号链接文档
+<span class="string">f:</span>普通文档
+</code></pre>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/04/05/sed/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/03/23/安装Ruby/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/04/04/shell/" data-title="shell笔记" data-url="http://yoursite.com/2015/04/04/shell/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-04-04 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/shell/">shell<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/shell/">shell<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#判断_–_if"><span class="toc-article-text">判断 – if</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#语法"><span class="toc-article-text">语法</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#判断变量是否等于某个值"><span class="toc-article-text">判断变量是否等于某个值</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#判断变量是否等于某个字符串"><span class="toc-article-text">判断变量是否等于某个字符串</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#判断字符串、输入参数是否为空"><span class="toc-article-text">判断字符串、输入参数是否为空</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#判断文件夹是否为空、是否存在"><span class="toc-article-text">判断文件夹是否为空、是否存在</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#判断两个字符串是否相等"><span class="toc-article-text">判断两个字符串是否相等</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#字符串操作"><span class="toc-article-text">字符串操作</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#参数"><span class="toc-article-text">参数</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#取变量、执行命令、操作"><span class="toc-article-text">取变量、执行命令、操作</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#字符串和变量拼接"><span class="toc-article-text">字符串和变量拼接</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#ps_aux_|_grep_app"><span class="toc-article-text">ps aux | grep app</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#for循环"><span class="toc-article-text">for循环</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#while循环"><span class="toc-article-text">while循环</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#break和continue仍然可以使用"><span class="toc-article-text">break和continue仍然可以使用</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#变量类型"><span class="toc-article-text">变量类型</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#shell脚本的续行符为_\"><span class="toc-article-text">shell脚本的续行符为   \</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#case结构"><span class="toc-article-text">case结构</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#将变量的内容追加到某个文件中"><span class="toc-article-text">将变量的内容追加到某个文件中</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#find"><span class="toc-article-text">find</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#转义字符_\"><span class="toc-article-text">转义字符  \</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#函数的返回值"><span class="toc-article-text">函数的返回值</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#从命令行获取内容"><span class="toc-article-text">从命令行获取内容</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#函数"><span class="toc-article-text">函数</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#if时多个判断条件"><span class="toc-article-text">if时多个判断条件</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#变量说明"><span class="toc-article-text">变量说明</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#变量自增的实现方法"><span class="toc-article-text">变量自增的实现方法</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#与文件存在与否的判断"><span class="toc-article-text">与文件存在与否的判断</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#与文件权限有关的判断"><span class="toc-article-text">与文件权限有关的判断</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#两个文件的比较判断"><span class="toc-article-text">两个文件的比较判断</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#整数之间的大小判断"><span class="toc-article-text">整数之间的大小判断</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#字符串之间的判断"><span class="toc-article-text">字符串之间的判断</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#多重条件判断"><span class="toc-article-text">多重条件判断</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#获取某个进程的pid的方法"><span class="toc-article-text">获取某个进程的pid的方法</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#对文件添加特殊保护"><span class="toc-article-text">对文件添加特殊保护</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#chattr命令的用法："><span class="toc-article-text">chattr命令的用法：</span></a></li></ol></li></ol></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#浮点数运算"><span class="toc-article-text">浮点数运算</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#在shell_中$()_与_``等效。_中间包含命令语句执行，返回执行结果。"><span class="toc-article-text">在shell 中$() 与 ``等效。 中间包含命令语句执行，返回执行结果。</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#使用ps显示某个进程的父进程pid"><span class="toc-article-text">使用ps显示某个进程的父进程pid</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#用awk打印某一列"><span class="toc-article-text">用awk打印某一列</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#find命令的参数"><span class="toc-article-text">find命令的参数</span></a></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

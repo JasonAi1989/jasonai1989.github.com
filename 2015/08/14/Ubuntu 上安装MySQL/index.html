@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Install MySQL on Ubuntu | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="介绍是一款免费的数据库程序，为Oracle公司旗下产品。
+安装MySQL要安装 MySQL，可以在终端提示符后运行下列命令：
+sudo apt-get install mysql-server mysql-client #中途会让你输入一次root用户密码">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Install MySQL on Ubuntu"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Install MySQL on Ubuntu</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h3 id="介绍">介绍</h3><p>是一款免费的数据库程序，为Oracle公司旗下产品。</p>
+<h3 id="安装MySQL">安装MySQL</h3><p>要安装 MySQL，可以在终端提示符后运行下列命令：</p>
+<pre><code>sudo apt-get install mysql-<span class="keyword">server</span> mysql-<span class="keyword">client</span> <span class="preprocessor">#中途会让你输入一次root用户密码</span>
+</code></pre><a id="more"></a>
+<p>注：如果在安装的过程中遇到问题，请看这篇文章<a href="http://www.jasonai.com/%E5%AE%89%E8%A3%85MySQL%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" target="_blank" rel="external">《安装MySQL失败解决方法》</a></p>
+<pre><code>sudo apt-<span class="keyword">get</span> install php5-mysql  <span class="comment">#安装php5-mysql 是将php和mysql连接起来</span>
+</code></pre><p>一旦安装完成，MySQL 服务器应该自动启动。</p>
+<pre><code>sudo <span class="built_in">start</span> mysql <span class="comment">#手动的话这样启动</span>
+
+sudo <span class="built_in">stop</span> mysql <span class="comment">#手动停止</span>
+</code></pre><p>当你修改了配置文件後，你需要重启 mysqld 才能使这些修改生效。</p>
+<p>要想检查 mysqld 进程是否已经开启，可以使用下面的命令：</p>
+<pre><code><span class="title">pgrep</span> mysqld
+</code></pre><p>如果进程开启，这个命令将会返回该进程的 id。</p>
+<h3 id="文件结构">文件结构</h3><p>MySQL配置文件：/etc/mysql/my.cnf ，其中指定了数据文件存放路径</p>
+<pre><code>datadir         = /<span class="keyword">var</span>/lib/mysql
+</code></pre><p>如果你创建了一个名为 test 的数据库，那么这个数据库的数据会存放到 /var/lib/mysql/test 目录下。</p>
+<h3 id="进入MySQL">进入MySQL</h3><pre><code>mysql -u root -<span class="tag">p</span> 
+</code></pre><p>(输入mysql的root密码)</p>
+<pre><code>$ mysql -u root -p
+Enter password: 
+Welcome <span class="built_in">to</span> <span class="operator">the</span> MySQL monitor.  Commands <span class="function"><span class="keyword">end</span> <span class="title">with</span> ; <span class="title">or</span> \<span class="title">g</span>.</span>
+Your MySQL connection id is <span class="number">37</span>
+Server <span class="built_in">version</span>: <span class="number">5.1</span><span class="number">.41</span>-<span class="number">3</span>ubuntu12<span class="number">.3</span> (Ubuntu)
+
+Type <span class="string">'help;'</span> <span class="operator">or</span> <span class="string">'\h'</span> <span class="keyword">for</span> help. Type <span class="string">'\c'</span> <span class="built_in">to</span> <span class="built_in">clear</span> <span class="operator">the</span> current input statement.
+
+mysql&gt; 
+</code></pre><p>修改 MySQL 的管理员密码：</p>
+<pre><code><span class="title">sudo</span> mysqladmin -u root password newpassword；
+</code></pre><h3 id="简单的操作">简单的操作</h3><p>显示数据库：</p>
+<pre><code><span class="header">mysql&gt; show databases;
++--------------------+</span>
+<span class="header">| Database           |
++--------------------+</span>
+| information<span class="emphasis">_schema |
+| mysql              |
++--------------------+
+2 rows in set (0.00 sec)</span>
+</code></pre><h3 id="设置远程访问">设置远程访问</h3><p>1.取消本地监听</p>
+<p>正常情况下，mysql占用的3306端口只是在IP 127.0.0.1上监听，拒绝了其他IP的访问（通过netstat可以查看到）。取消本地监听需要修改 my.cnf 文件：</p>
+<pre><code>sudo vim /etc/mysql/my<span class="class">.cnf</span>
+<span class="comment">//找到如下内容，并注释</span>
+bind-<span class="tag">address</span> = <span class="number">127.0</span>.<span class="number">0.1</span>
+</code></pre><p>然后需要重启 mysql （可最后再重启）。</p>
+<p>2.授权法</p>
+<pre><code>mysql&gt;GRANT <span class="literal">ALL</span> PRIVILEGES <span class="keyword">ON</span> *<span class="built_in">.</span>* <span class="keyword">TO</span> &lt;user&gt;@<span class="string">"%"</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">'&lt;password&gt;'</span> <span class="keyword">WITH</span> GRANT OPTION;
+mysql&gt;FLUSH PRIVILEGES
+</code></pre><p>第二句表示从mysql数据库的grant表中重新加载权限数据。因为MySQL把权限都放在了cache中，所以在做完更改后需要重新加载。</p>
+<h3 id="phpmyadmin管理">phpmyadmin管理</h3><p>用随便一个支持PHP的web服务器（如Apache、Nginx、Lighttpd），下载phpmyadmin，装之。</p>
+<pre><code>sudo apt-<span class="keyword">get</span> install phpmyadmin  <span class="comment">#注意这是安装到/usr/share/phpmyadmin</span>
+</code></pre>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/09/01/巴比伦富翁理财课/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/07/23/freeBSD内核参数/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/08/14/Ubuntu 上安装MySQL/" data-title="Install MySQL on Ubuntu" data-url="http://yoursite.com/2015/08/14/Ubuntu 上安装MySQL/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-08-14 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Linux/">Linux<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/MySQL/">MySQL<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#介绍"><span class="toc-article-text">介绍</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#安装MySQL"><span class="toc-article-text">安装MySQL</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#文件结构"><span class="toc-article-text">文件结构</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#进入MySQL"><span class="toc-article-text">进入MySQL</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#简单的操作"><span class="toc-article-text">简单的操作</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#设置远程访问"><span class="toc-article-text">设置远程访问</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#phpmyadmin管理"><span class="toc-article-text">phpmyadmin管理</span></a></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

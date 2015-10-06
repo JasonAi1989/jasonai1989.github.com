@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Install git on Unix | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="git在ubuntu和freeBSD上的安装方式">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Install git on Unix"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Install git on Unix</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+	
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>git在ubuntu和freeBSD上的安装方式</p>
+			
+		</div> <!-- alert -->
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h2 id="git安装">git安装</h2><p>在ubuntu上安装</p>
+<pre><code>Sudo apt-<span class="keyword">get</span> install git-core
+</code></pre><p>在freebsd上安装</p>
+<pre><code>gmake prefix=/usr/<span class="built_in">local</span> <span class="literal">all</span> doc
+</code></pre><a id="more"></a>
+<p>编译出现无法找到curl.h文件，原因是未安装curl,下载安装curl</p>
+<pre><code>curl安装过程：
+./configure
+<span class="built_in">make</span>
+<span class="built_in">make</span> install
+</code></pre><p>编译出现缺少expat.h的警告，然后出现一堆编译错误，原因是未安装expat，下载expat</p>
+<pre><code>expat安装过程：
+./configure
+<span class="built_in">make</span>
+<span class="built_in">make</span> install
+</code></pre><p>编译出现缺少Python，下载安装Python，安装过程同上</p>
+<p>安装</p>
+<pre><code>gmake prefix=/usr/local <span class="keyword">install</span> <span class="keyword">install</span>-doc <span class="keyword">install</span>-html
+</code></pre><p>设置git的全局变量</p>
+<pre><code>git config --global user<span class="class">.name</span> <span class="string">"Your Name"</span>
+git config --global user<span class="class">.email</span> you@email.com
+</code></pre><p>设置其他一些参数，可以直接编辑git的配置文件，打开.gitconfig文件，配置如下</p>
+<pre><code>[user]
+    name = AiZhaoyu
+    email = aizhaoyu@<span class="number">163</span>.<span class="keyword">com</span>
+[alias]
+    <span class="keyword">st</span>=status
+    ci=commit -<span class="keyword">m</span>
+    <span class="keyword">br</span>=branch
+    <span class="keyword">co</span>=checkout
+    df=diff --raw
+    <span class="keyword">lg</span>=<span class="built_in">log</span> --oneline
+</code></pre><h2 id="Gitolite安装以及仓库建立（在ubuntu上安装）">Gitolite安装以及仓库建立（在ubuntu上安装）</h2><p>安装gitolite    </p>
+<pre><code>sudo apt-<span class="keyword">get</span> install gitolite
+</code></pre><p>安装ssh       </p>
+<pre><code>sudo apt-get <span class="operator"><span class="keyword">install</span> openssh-<span class="keyword">server</span></span>
+</code></pre><p>建立仓库专用帐号    </p>
+<pre><code><span class="label">sudo</span> <span class="keyword">adduser </span>--system --shell /<span class="keyword">bin/bash </span>--group git
+<span class="label">sudo</span> <span class="keyword">adduser </span>git ssh
+<span class="label">sudo</span> passwd git
+</code></pre><p>在客户机上生成ssh公钥   </p>
+<pre><code>ssh-keygen
+</code></pre><p>将客户机上生成的公钥 id_rsa.pub改名为name.pub，然后上传到（不管用什么方法）服务器的  /tmp目录下</p>
+<p>生成管理员仓库（管理员仓库用于对其他所有仓库进行管理与控制）</p>
+<pre><code>gl-setup   /tmp/aizhaoyu<span class="class">.pub</span>   
+</code></pre><p>在客户机上克隆管理员仓库    </p>
+<pre><code>git  clone  git<span class="variable">@servername</span><span class="symbol">:gitolite-admin</span>
+</code></pre><p>在客户机的gitolite-admin/conf目录下的gitolite.conf文件中添加需要建立的仓库；</p>
+<p>在客户机的gitolite-admin/keydir目录下增加其他客户机的公钥；</p>
+<p>添加之后将数据更新到服务器的gitolite-admin仓库中，便会自动创建所需要的仓库。</p>
+<p>注：有时可能会需要git账户拥有sudo的权限，需要在可用sudo命令的账户下执行sudo visudo 命令，然后添加  git  ALL=(ALL:ALL)  ALL  这句话到文件中。</p>
+<h2 id="Git命令">Git命令</h2><p>删除已经存储的文件   </p>
+<pre><code>git <span class="keyword">rm</span> -r --cached [<span class="keyword">file</span>]
+</code></pre><p>添加标签   </p>
+<pre><code>git tag -<span class="tag">a</span> 
+</code></pre><p>显示标签   </p>
+<pre><code>git <span class="built_in">tag</span>
+</code></pre><h2 id="添加远端版本库">添加远端版本库</h2><pre><code>git remote <span class="keyword">add</span> [name] url
+<span class="label">eg:</span> git remote <span class="keyword">add</span> origin ssh://git<span class="localvars">@211</span><span class="number">.88</span><span class="number">.25</span><span class="number">.109</span>/loadpass.git
+</code></pre>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/07/09/ospf配置/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/06/04/Linux命令/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/06/04/git安装/" data-title="Install git on Unix" data-url="http://yoursite.com/2015/06/04/git安装/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-06-04 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/git/">git<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/git/">git<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#git安装"><span class="toc-article-text">git安装</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Gitolite安装以及仓库建立（在ubuntu上安装）"><span class="toc-article-text">Gitolite安装以及仓库建立（在ubuntu上安装）</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Git命令"><span class="toc-article-text">Git命令</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#添加远端版本库"><span class="toc-article-text">添加远端版本库</span></a></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

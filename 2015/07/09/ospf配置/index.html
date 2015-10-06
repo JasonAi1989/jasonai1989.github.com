@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ospf配置 | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="ospf需要多台机器之间配合才能有用，但这里只介绍一台机器的配置情况，其它机器只需修改某些特殊信息，需要修改的信息会用加粗字体来标注。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ospf配置"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> ospf配置</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>ospf需要多台机器之间配合才能有用，但这里只介绍一台机器的配置情况，其它机器只需修改某些特殊信息，需要修改的信息会用加粗字体来标注。</p>
+<a id="more"></a>
+<p>1、配置zebra<br>在使ospf生效之前必须先开启并配置zebra。下面为从shell中黏贴过来的信息。</p>
+<pre><code>load1<span class="preprocessor"># /vload/bin/zebra -d -f /vload/etc/zebra.conf -u root -g wheel</span>
+load1<span class="preprocessor"># telnet localhost <span class="number">2601</span></span>
+
+Password: 
+Router&gt; en
+Password: 
+Router<span class="preprocessor"># con t</span>
+Router(config)<span class="preprocessor"># interface fxp0</span>
+Router(config-<span class="keyword">if</span>)<span class="preprocessor"># ip address <span class="number">211.88</span><span class="number">.25</span><span class="number">.226</span>/<span class="number">24</span> </span>
+Router(config-<span class="keyword">if</span>)<span class="preprocessor"># wri file</span>
+Configuration saved to /vload/etc/zebra.conf
+</code></pre><p><strong>注：</strong></p>
+<p><strong>1、其中第一行的程序运行需要根据实际情况进行修改</strong></p>
+<p><strong>2、fxp0需要修改为对应的网卡名，具体可以使用ifconfig进行查看</strong></p>
+<p><strong>3、ip地址需要是你本机对应网卡上的IP地址</strong></p>
+<p>2、配置ospf</p>
+<pre><code>load1<span class="preprocessor"># /vload/bin/ospfd -d -f /vload/etc/ospf.conf -u root -g wheel</span>
+load1<span class="preprocessor"># telnet localhost <span class="number">2604</span></span>
+
+Password: 
+ospfd&gt; en
+ospfd<span class="preprocessor"># con t</span>
+ospfd(config)<span class="preprocessor"># router ospf </span>
+ospfd(config-router)<span class="preprocessor"># network <span class="number">211.88</span><span class="number">.25</span><span class="number">.226</span>/<span class="number">24</span> area <span class="number">1</span></span>
+ospfd(config-router)<span class="preprocessor"># wri mem</span>
+Configuration saved to /vload/etc/ospf.conf
+</code></pre><p><strong>注：</strong></p>
+<p><strong>1、其中第一行的程序运行需要根据实际情况进行修改</strong></p>
+<p><strong>2、IP地址为需要向外发布的IP地址</strong></p>
+<p><strong>3、area后面跟的ID值，在同一网段中的路由，此ID值必须一样，否则即便收到ospf hello包，同样是无法将其设置成neighbors</strong></p>
+<p>3、验证是否设置成功</p>
+<p>在跟命令行下，命令：</p>
+<pre><code>ospfd# <span class="operator"><span class="keyword">show</span> ip ospf 
+  border-routers  <span class="keyword">for</span> this area
+  <span class="keyword">database</span>        <span class="keyword">Database</span> summary
+  <span class="keyword">interface</span>       <span class="keyword">Interface</span> information
+  neighbor        Neighbor <span class="keyword">list</span>
+  route           OSPF routing <span class="keyword">table</span></span>
+</code></pre><p>可以查看多项信息，只有当接收到相同area id值的ospf hello包时才能将其设置成neighbors。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/07/23/freeBSD内核参数/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/06/04/git安装/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/07/09/ospf配置/" data-title="ospf配置" data-url="http://yoursite.com/2015/07/09/ospf配置/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-07-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/freeBSD/">freeBSD<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/freeBSD/">freeBSD<span>4</span></a></li> <li><a href="/tags/ospf/">ospf<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
