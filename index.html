@@ -351,74 +351,6 @@ var _hmt = _hmt || [];
 	
 	  <h3 id="其他常见数据类型">其他常见数据类型</h3><p>这里介绍几个其他几个常见的数据类型，包括 NSEnumerator, NSData, NSDate等。</p>
 <p>常用的结构体有NSRange、NSPoint、NSSize、NSRect等。</p>
-<h3 id="NSEnumerator">NSEnumerator</h3><p>NSEnumerator是一个抽象类，这个类型的实例只能通过集合类型变量的相关方法进行初始化。简单的说，这个类型本身没有初始化函数，需要通过集合类型（NSArray, NSSet, NSDictionary）中的相关方法进行初始化。</p>
-<p>NSEnumerator类型的变量可以通过调用nextObject方法迅速获取到集合中的元素，当遍历完集合中的所有元素后会返回nil</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过NSArray创建实例</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)objectEnumerator</span><br><span class="line"></span>-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)reverseObjectEnumerator</span><br><span class="line"></span><span class="comment"></span><br><span class="line">//通过NSSet创建实例</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)objectEnumerator</span><br><span class="line"></span><span class="comment"></span><br><span class="line">//通过NSDictionary创建实例</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">NSEnumerator</span> *)keyEnumerator</span><br><span class="line"></span>-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)objectEnumerator</span><br><span class="line"></span><span class="comment"></span><br><span class="line">//获取下一个元素</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">ObjectType</span>)nextObject</span></span><br></pre></td></tr></table></figure>
-<h3 id="NSData">NSData</h3><p>NSData和它的子类NSMutableData提供数据对象，这两个数据类型典型应用场景是在数据存储上，同时在分布式对象应用中也很有帮助。</p>
-<p>NSData和他的子类可以快速简便的将内容存储到磁盘上，是数据丢失的风险降到最低，这个类型提供了一些列自动存储数据的方法。</p>
-<p>自动写入最开始会将数据写入到一个临时文件中，当写入成功后才会将这个临时文件移动到其最后的位置上。</p>
-<p>虽然自动写入功能降低了因文件损坏而带了的风险，但并不是说自动写入功能是完全安全的，尤其当写入的位置是一个临时目录，用户的home目录或者是任意一个公开的容易访问的位置时。任何时候，当你访问一个公开的容易访问的文件时，都应该把其看作是一个不可信的文件，或者拥有潜在风险的文件。黑客可能会破坏此文件，或者通过软硬链接使你改写一个系统文件。</p>
-<p>当要写入的位置是一个公开的容易访问的目录时，应该避免使用writeToURL:atomically:等相关方法。可以使用 NSFileHandle对象取而代之。这个对象会更加安全。更多信息可访问<a href="https://developer.apple.com/library/mac/documentation/Security/Conceptual/SecureCodingGuide/Articles/RaceConditions.html#//apple_ref/doc/uid/TP40002585-SW9" target="_blank" rel="external"> Securing File Operations </a></p>
-<h3 id="NSDate">NSDate</h3><p>NSDate对象用来表示一个具体的时间点。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line">+ <span class="string">dateWithTimeIntervalSinceNow:</span></span><br><span class="line">+ <span class="string">dateWithTimeInterval:</span><span class="string">sinceDate:</span></span><br><span class="line">+ <span class="string">dateWithTimeIntervalSinceReferenceDate:</span></span><br><span class="line">+ <span class="string">dateWithTimeIntervalSince1970:</span></span><br><span class="line">- <span class="string">initWithTimeIntervalSinceNow:</span></span><br><span class="line">- <span class="string">initWithTimeInterval:</span><span class="string">sinceDate:</span></span><br><span class="line">- <span class="string">initWithTimeIntervalSinceReferenceDate:</span></span><br><span class="line">Designated Initializer</span><br><span class="line">- <span class="string">initWithTimeIntervalSince1970:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//比较日期</span></span><br><span class="line">- <span class="string">isEqualToDate:</span></span><br><span class="line">- <span class="string">earlierDate:</span></span><br><span class="line">- <span class="string">laterDate:</span></span><br><span class="line">- <span class="string">compare:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将日期转化为字符串</span></span><br><span class="line">description</span><br><span class="line">- <span class="string">descriptionWithLocale:</span></span><br></pre></td></tr></table></figure>
-<p>代码举例：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获得当前日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date1=[<span class="built_in">NSDate</span> date];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date1); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//在当前日期的基础上加上100秒，注意在ObjC中多数时间单位都是秒</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date2=[<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date2); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//随机获取一个将来的日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date3=[<span class="built_in">NSDate</span> distantFuture];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date3);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//日期之差,返回单位为秒</span></span><br><span class="line">    <span class="built_in">NSTimeInterval</span> time=[date2 timeIntervalSinceDate:date1];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,time); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回比较早的日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date5=[date1 earlierDate:date3];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date5); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//日期格式化</span></span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *formater1=[[<span class="built_in">NSDateFormatter</span> alloc]init];</span><br><span class="line">    formater1<span class="variable">.dateFormat</span>=<span class="string">@"yy-MM-dd HH:mm:ss"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *datestr1=[formater1 stringFromDate:date1];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,datestr1); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//字符串转化为日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date6=[formater1 dateFromString:<span class="string">@"14-02-14 11:07:16"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date6);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="常用结构体">常用结构体</h3><p>下面用一段代码来解释常用的四种结构体。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSRange表示一个范围，(arg1, arg2) =&gt; (location, length)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSRange rg1=&#123;<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    NSRange rg2;</span><br><span class="line">    rg2.location=<span class="number">3</span>;</span><br><span class="line">    rg2.length=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    NSRange rg3=&#123;.location=<span class="number">3</span>,.length=<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//常用下面的方式定义 </span></span><br><span class="line">    NSRange rg4=NSMakeRange(<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//打印NSRange可以使用Foundation中方法 </span></span><br><span class="line">    NSLog(@<span class="string">"rg2 is %@"</span>, NSStringFromRange(rg4));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//注意不能直接NSLog(@"rg4 is %@", rg4)，因为rg4不是对象（准确的说%@是指针）而是结构体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSPoint表示一个点, (arg1, arg2) =&gt; (x, y)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSPoint p=NSMakePoint(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSPoint其实就是CGPoint</span></span><br><span class="line">    <span class="comment">//这种方式比较常见 </span></span><br><span class="line">    CGPoint p2=CGPointMake(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">    </span><br><span class="line">    NSLog(NSStringFromPoint(p2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSSize表示大小, (arg1, arg2) =&gt; (width, height)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSSize s=NSMakeSize(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSSize其实就是CGSize</span></span><br><span class="line">    <span class="comment">//这种方式比较常见 </span></span><br><span class="line">    CGSize s2=CGSizeMake(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line"></span><br><span class="line">    NSLog(NSStringFromSize(s2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSRect表示一个矩形, (arg1, arg2, arg3, arg4) =&gt; (x, y, width, height)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSRect r=NSMakeRect(<span class="number">10</span>, <span class="number">5</span>, <span class="number">100</span>, <span class="number">200</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSRect其实就是CGRect</span></span><br><span class="line">    <span class="comment">//这种方式比较常见 </span></span><br><span class="line">    CGRect r2=CGRectMake(<span class="number">10</span>, <span class="number">5</span>, <span class="number">100</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    NSLog(NSStringFromRect(r2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        test1();</span><br><span class="line">        test2();</span><br><span class="line">        test3();</span><br><span class="line">        test4();</span><br><span class="line">    &#125; <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Tips</strong></p>
-<pre><code><span class="number">1.</span>对于常用结构体在Foundation框架中都有一个对应的make方法进行创建；
-<span class="number">2.</span>对应的还都有一个NSStringFromXX方法来进行字符串转换，方便我们调试；
-<span class="number">3.</span>结构体类型的变量不能用<span class="string">"*"</span>来接收；
-</code></pre><h3 id="官方文档">官方文档</h3><p>Foundation框架介绍性的文章自然不少，这里给出<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/index.html#//apple_ref/doc/uid/20001091" target="_blank" rel="external">Foundation框架的官方文档</a>。</p>
-<p>Foundation框架所提供的很多类都具有相似的功能。</p>
-<ul>
-<li><p>Data storage —— 数据存储</p>
-<ul>
-<li>NSData, NSString 提供对二进制和字符串的存储</li>
-<li>NSValue, NSNumber 提供对c语言数据类型的存储</li>
-<li>NSArray, NSDictionary, NSSet 提供对对象类型数据的存储</li>
-</ul>
-</li>
-<li><p>Text and strings —— 文本和字符串</p>
-<ul>
-<li>NSCharacterSet 可以设置NSString 和 NSScanner 类中所使用的字符</li>
-<li>NSString 类可以展现文本和字符串，并提供方法进行字符串的查找、组合和比较</li>
-<li>NSScanner 类可以浏览NSString对象中的数字和单词</li>
-</ul>
-</li>
-<li><p>Dates and times —— 日期和时间</p>
-<ul>
-<li>NSDate, NSTimeZone, NSCalendar 存储时间和日期，并且展示日历信息，提供用于计算时间和日期不同的方法</li>
-<li>NSLocale 提供方法来显示世界上不同地域所以用的不同日期格式</li>
-</ul>
-</li>
-<li><p>Application coordination and timing —— 应用协同和定时</p>
-<ul>
-<li>NSNotification, NSNotificationCenter, NSNotificationQueue 提供一个通知系统</li>
-<li>NSTimer  用于定时发送消息</li>
-</ul>
-</li>
-<li><p>Object creation and disposal —— 对象创建和消除</p>
-<ul>
-<li>NSAutoreleasePool  类用于延时释放功能</li>
-</ul>
-</li>
-<li><p>Object distribution and persistence —— 对象分布和保持</p>
-<ul>
-<li>NSPropertyListSerialization</li>
-<li>NSCoder </li>
-</ul>
-</li>
-<li><p>Operating-system services —— 操作系统服务</p>
-<ul>
-<li>NSFileManager 提供固定的接口用于文件操作（文件的创建/删除/重命名等）</li>
-<li>NSThread, NSProcessInfo 可以创建多线程的应用，并查询应用所运行的环境</li>
-</ul>
-</li>
-<li><p>URL loading system —— URL加载系统</p>
-</li>
-</ul>
-
 	
 	</div>
 	
@@ -1065,45 +997,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/自传/">自传<span>1</span></a></li>
-		
-			<li><a href="/tags/Xcode/">Xcode<span>2</span></a></li>
-		
-			<li><a href="/tags/sed/">sed<span>1</span></a></li>
-		
-			<li><a href="/tags/理财/">理财<span>1</span></a></li>
-		
-			<li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
-		
-			<li><a href="/tags/freeBSD/">freeBSD<span>4</span></a></li>
-		
-			<li><a href="/tags/illusion/">illusion<span>1</span></a></li>
+			<li><a href="/tags/iOS/">iOS<span>14</span></a></li>
 		
 			<li><a href="/tags/创业/">创业<span>1</span></a></li>
 		
 			<li><a href="/tags/Video/">Video<span>6</span></a></li>
 		
-			<li><a href="/tags/objective-c/">objective-c<span>9</span></a></li>
-		
 			<li><a href="/tags/MySQL/">MySQL<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
+			<li><a href="/tags/理财/">理财<span>1</span></a></li>
+		
+			<li><a href="/tags/illusion/">illusion<span>1</span></a></li>
+		
+			<li><a href="/tags/objective-c/">objective-c<span>9</span></a></li>
 		
 			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
 		
-			<li><a href="/tags/English/">English<span>10</span></a></li>
+			<li><a href="/tags/git/">git<span>3</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
+		
+			<li><a href="/tags/Xcode/">Xcode<span>2</span></a></li>
 		
 			<li><a href="/tags/Animation/">Animation<span>2</span></a></li>
 		
+			<li><a href="/tags/English/">English<span>10</span></a></li>
+		
 			<li><a href="/tags/时钟/">时钟<span>1</span></a></li>
+		
+			<li><a href="/tags/自传/">自传<span>1</span></a></li>
 		
 			<li><a href="/tags/ospf/">ospf<span>1</span></a></li>
 		
-			<li><a href="/tags/git/">git<span>3</span></a></li>
+			<li><a href="/tags/sed/">sed<span>1</span></a></li>
 		
 			<li><a href="/tags/shell/">shell<span>2</span></a></li>
 		
-			<li><a href="/tags/iOS/">iOS<span>14</span></a></li>
+			<li><a href="/tags/Swift/">Swift<span>3</span></a></li>
+		
+			<li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>21</span></a></li>
