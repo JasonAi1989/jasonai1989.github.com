@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>objective-c KVC与KVO | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="概述KVC和KVO都应算是动态特性。
+
+KVC（Key Value Coding）键值编码
+KVO（Key Value Observing）键值监测">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="objective-c KVC与KVO"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> objective-c KVC与KVO</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h3 id="概述">概述</h3><p>KVC和KVO都应算是动态特性。</p>
+<ul>
+<li>KVC（Key Value Coding）键值编码</li>
+<li>KVO（Key Value Observing）键值监测</li>
+</ul>
+<a id="more"></a>
+<h3 id="KVC">KVC</h3><p>KVC可以通过键的方式给一个变量赋值（获取值），并且<strong>无论这个变量是否为private均可访问</strong>。</p>
+<p>这个索引用的键一般就是变量的字面名字，比如需要访问的变量为a，则键为@“a”。</p>
+<p>通过KVC设置变量可以使用下面的方法：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setValue:属性值 forKey:属性名        //用于简单路径</span><br><span class="line">setValue:属性值 forKeyPath:属性路径  //用于复合路径,例如<span class="keyword">person</span>.account</span><br></pre></td></tr></table></figure>
+<p>通过KVC读取变量可以使用下面的方法：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">valueForKey:</span>属性名        <span class="comment">//用于简单路径</span></span><br><span class="line"><span class="string">valueForKeyPath:</span>属性名    <span class="comment">//用于复合路径</span></span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[person <span class="string">setValue:</span>@<span class="number">28</span> <span class="string">forKey:</span>@<span class="string">"age"</span>];</span><br><span class="line">[person <span class="string">valueForKey:</span>@<span class="string">"age"</span>];</span><br><span class="line"></span><br><span class="line">[person <span class="string">setValue:</span>@<span class="number">100000000.0</span> <span class="string">forKeyPath:</span>@<span class="string">"account.balance"</span>];</span><br><span class="line">[[person <span class="string">valueForKeyPath:</span>@<span class="string">"account.balance"</span>] floatValue];</span><br></pre></td></tr></table></figure>
+<p>age为person类中的一个私有变量，account是person类中的一个属性变量，account类中还有一个变量balance。</p>
+<p><strong>Tips</strong></p>
+<pre><code><span class="number">1.</span>即便是类中的私有变量，通过KVC也能进行访问；
+<span class="number">2.</span>如果是访问类中变量中的变量，需要使用复合路径；
+<span class="number">3.</span>如果要赋值的变量不是字符串类型，也要在第一个参数中调用@符号，@+具体值，但如果值是一个对象，那就直接写对象名就好了。
+</code></pre><p>KVC进行变量查找的规则（以查找变量a为例）：</p>
+<ul>
+<li><p>如果是变量赋值操作</p>
+<ul>
+<li>优先调用类中属性变量a的setter方法；</li>
+<li>如果没有a的setter方法，则试图访问_a变量；</li>
+<li>如果没有_a变量，则试图访问a变量；</li>
+<li>如果没有a变量，则会调用这个类的setValue: forUndefinedKey：方法</li>
+</ul>
+</li>
+<li><p>如果是变量取值操作</p>
+<ul>
+<li>优先调用类中属性变量a的getter方法；</li>
+<li>如果没有a的getter方法，则试图访问_a变量；</li>
+<li>如果没有_a变量，则试图访问a变量；</li>
+<li>如果没有a变量，则会调用这个类的valueforUndefinedKey: 方法</li>
+</ul>
+</li>
+</ul>
+<p>使用KVC方式进行值访问的目的：简化代码。</p>
+<p>例如，变量a=@”name”，此时如果想获取类中name变量的值就可以直接通过KVC获取</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">value = [person valueForKey:</span><span class="literal">a</span>]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>不用KVC的代码如下：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(<span class="comment">[a isEqualToString:@"name"]</span>)</span><br><span class="line">&#123;</span><br><span class="line">    value = <span class="keyword">person</span>.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="KVO">KVO</h3><p>Key Value Observing（简称KVO）,键值监听，简单来说，就是当某个被监听的值发生变化时，会通知相应的监听函数，监听者可以重写这个监听函数，从而得到变动通知。</p>
+<p>KVO使用方法：</p>
+<ul>
+<li><p>注册监听值 </p>
+<ul>
+<li><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">addObserver:</span> <span class="string">forKeyPath:</span> <span class="string">options:</span>  <span class="string">context:</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>删除监听值</p>
+<ul>
+<li><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">removeObserver</span>: <span class="string">forKeyPath</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">removeObserver:</span> <span class="string">forKeyPath:</span> <span class="string">context:</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>回调监听</p>
+<ul>
+<li><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">observeValueForKeyPath:</span> <span class="string">ofObject:</span> <span class="string">change:</span> <span class="string">context:</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>KVO使用步骤：</p>
+<pre><code><span class="number">1.</span>通过<span class="string">addObserver:</span> <span class="string">forKeyPath:</span> <span class="string">options:</span> <span class="string">context:</span>为被监听对象（它通常是数据模型）注册监听器；
+<span class="number">2.</span>重写监听器的<span class="string">observeValueForKeyPath:</span> <span class="string">ofObject:</span> <span class="string">change:</span> <span class="string">context:</span>方法
+</code></pre>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/10/21/block/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/10/20/内存管理_MRC/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/10/21/KVC与KVO/" data-title="objective-c KVC与KVO" data-url="http://yoursite.com/2015/10/21/KVC与KVO/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-10-21 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>15</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/iOS/">iOS<span>14</span></a></li> <li><a href="/tags/objective-c/">objective-c<span>9</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#概述"><span class="toc-article-text">概述</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#KVC"><span class="toc-article-text">KVC</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#KVO"><span class="toc-article-text">KVO</span></a></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>

@@ -116,6 +116,326 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-10-21 </div>
+			<div class="article-title"><a href="/2015/10/21/block/" >block —— 代码块</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <p>ObjC中的Block是对闭包的实现，而闭包的主要作用就是实现c语言中的回调函数的特性。说到回调函数的特性，protocol+委托功能不也是对回调函数的一种实现嘛，所以在某些场合Block是能替换protocol+委托功能，但如果要实现的方法比较多还是用protocol+委托的方式来实现吧。</p>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/21/block/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="block —— 代码块"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/21/block/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-21 </div>
+			<div class="article-title"><a href="/2015/10/21/KVC与KVO/" >objective-c KVC与KVO</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="概述">概述</h3><p>KVC和KVO都应算是动态特性。</p>
+<ul>
+<li>KVC（Key Value Coding）键值编码</li>
+<li>KVO（Key Value Observing）键值监测</li>
+</ul>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/21/KVC与KVO/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c KVC与KVO"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/21/KVC与KVO/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-20 </div>
+			<div class="article-title"><a href="/2015/10/20/内存管理_MRC/" >objective-c 内存管理 —— MRC</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="引用计数">引用计数</h3><p>在objective-c中没有类似JAVA中的垃圾回收器，但也不像c语言那样直接释放。</p>
+<p>在每个对象中都有一个retainCount的变量用来对对象的引用进行计数。</p>
+<p>可以增加retainCount的方法有：</p>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/20/内存管理_MRC/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 内存管理 —— MRC"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/20/内存管理_MRC/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-20 </div>
+			<div class="article-title"><a href="/2015/10/20/内存管理_ARC/" >objective-c 内存管理 —— ARC</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="ARC_自动引用计数">ARC 自动引用计数</h3><p>简单地说，就是代码中自动加入了retain/release，原先需要手动添加的用来处理内存管理的引用计数的代码可以自动地由编译器完成了。</p>
+<p>该机能在 iOS 5/ Mac OS X 10.7 开始导入，利用 Xcode4.2 可以使用该机能。简单地理解ARC，就是通过指定的语法，让编译器(LLVM 3.0)在编译代码时，自动生成实例的引用计数管理部分代码。有一点，ARC并不是GC，它只是一种代码静态分析（Static Analyzer）工具。</p>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/20/内存管理_ARC/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 内存管理 —— ARC"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/20/内存管理_ARC/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/category/" >category —— 分类</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="category是什么">category是什么</h3><p>category是ios进行类扩展的一种方式，同样能对类尽兴扩展的方式还有extension和继承（inherit）。</p>
+<p>extension是可以看作是一种匿名的category方式，具体异同会在后文详述。</p>
+<p>继承（inherit）是通过实现子类来对父类尽兴扩展。</p>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/19/category/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="category —— 分类"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/19/category/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-19 </div>
+			<div class="article-title"><a href="/2015/10/19/类与函数/" >类与函数</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="类">类</h3><p>类声明的格式为：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">ClassName</span>:superClassName</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/19/类与函数/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="类与函数"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/19/类与函数/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-17 </div>
+			<div class="article-title"><a href="/2015/10/17/protocol/" >protocol —— 协议</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="protocol是什么">protocol是什么</h3><p>protocol是objective-c中的一种约定，他不是类，只是在其声明中约定了相关的方法，然后再由遵守约定的类对其方法进行实现。</p>
+<p>因为protocol不是类，所以本身没有对方法的实现，需要protocol的遵守者进行实现。<br>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/17/protocol/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="protocol —— 协议"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/17/protocol/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-10-16 </div>
+			<div class="article-title"><a href="/2015/10/16/objective-c 其他常见数据类型/" title="介绍objective-c中的基本数据类型">objective-c 其他常见数据类型</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="其他常见数据类型">其他常见数据类型</h3><p>这里介绍几个其他几个常见的数据类型，包括 NSEnumerator, NSData, NSDate等。</p>
+<p>常用的结构体有NSRange、NSPoint、NSSize、NSRect等。</p>
+<h3 id="NSEnumerator">NSEnumerator</h3><p>NSEnumerator是一个抽象类，这个类型的实例只能通过集合类型变量的相关方法进行初始化。简单的说，这个类型本身没有初始化函数，需要通过集合类型（NSArray, NSSet, NSDictionary）中的相关方法进行初始化。</p>
+<p>NSEnumerator类型的变量可以通过调用nextObject方法迅速获取到集合中的元素，当遍历完集合中的所有元素后会返回nil</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过NSArray创建实例</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)objectEnumerator</span><br><span class="line"></span>-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)reverseObjectEnumerator</span><br><span class="line"></span><span class="comment"></span><br><span class="line">//通过NSSet创建实例</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)objectEnumerator</span><br><span class="line"></span><span class="comment"></span><br><span class="line">//通过NSDictionary创建实例</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">NSEnumerator</span> *)keyEnumerator</span><br><span class="line"></span>-<span class="ruby"> (<span class="constant">NSEnumerator</span>&lt;<span class="constant">ObjectType</span>&gt; *)objectEnumerator</span><br><span class="line"></span><span class="comment"></span><br><span class="line">//获取下一个元素</span></span><br><span class="line">-<span class="ruby"> (<span class="constant">ObjectType</span>)nextObject</span></span><br></pre></td></tr></table></figure>
+<h3 id="NSData">NSData</h3><p>NSData和它的子类NSMutableData提供数据对象，这两个数据类型典型应用场景是在数据存储上，同时在分布式对象应用中也很有帮助。</p>
+<p>NSData和他的子类可以快速简便的将内容存储到磁盘上，是数据丢失的风险降到最低，这个类型提供了一些列自动存储数据的方法。</p>
+<p>自动写入最开始会将数据写入到一个临时文件中，当写入成功后才会将这个临时文件移动到其最后的位置上。</p>
+<p>虽然自动写入功能降低了因文件损坏而带了的风险，但并不是说自动写入功能是完全安全的，尤其当写入的位置是一个临时目录，用户的home目录或者是任意一个公开的容易访问的位置时。任何时候，当你访问一个公开的容易访问的文件时，都应该把其看作是一个不可信的文件，或者拥有潜在风险的文件。黑客可能会破坏此文件，或者通过软硬链接使你改写一个系统文件。</p>
+<p>当要写入的位置是一个公开的容易访问的目录时，应该避免使用writeToURL:atomically:等相关方法。可以使用 NSFileHandle对象取而代之。这个对象会更加安全。更多信息可访问<a href="https://developer.apple.com/library/mac/documentation/Security/Conceptual/SecureCodingGuide/Articles/RaceConditions.html#//apple_ref/doc/uid/TP40002585-SW9" target="_blank" rel="external"> Securing File Operations </a></p>
+<h3 id="NSDate">NSDate</h3><p>NSDate对象用来表示一个具体的时间点。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line">+ <span class="string">dateWithTimeIntervalSinceNow:</span></span><br><span class="line">+ <span class="string">dateWithTimeInterval:</span><span class="string">sinceDate:</span></span><br><span class="line">+ <span class="string">dateWithTimeIntervalSinceReferenceDate:</span></span><br><span class="line">+ <span class="string">dateWithTimeIntervalSince1970:</span></span><br><span class="line">- <span class="string">initWithTimeIntervalSinceNow:</span></span><br><span class="line">- <span class="string">initWithTimeInterval:</span><span class="string">sinceDate:</span></span><br><span class="line">- <span class="string">initWithTimeIntervalSinceReferenceDate:</span></span><br><span class="line">Designated Initializer</span><br><span class="line">- <span class="string">initWithTimeIntervalSince1970:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//比较日期</span></span><br><span class="line">- <span class="string">isEqualToDate:</span></span><br><span class="line">- <span class="string">earlierDate:</span></span><br><span class="line">- <span class="string">laterDate:</span></span><br><span class="line">- <span class="string">compare:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将日期转化为字符串</span></span><br><span class="line">description</span><br><span class="line">- <span class="string">descriptionWithLocale:</span></span><br></pre></td></tr></table></figure>
+<p>代码举例：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获得当前日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date1=[<span class="built_in">NSDate</span> date];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date1); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//在当前日期的基础上加上100秒，注意在ObjC中多数时间单位都是秒</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date2=[<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date2); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//随机获取一个将来的日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date3=[<span class="built_in">NSDate</span> distantFuture];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date3);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//日期之差,返回单位为秒</span></span><br><span class="line">    <span class="built_in">NSTimeInterval</span> time=[date2 timeIntervalSinceDate:date1];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%f"</span>,time); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回比较早的日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date5=[date1 earlierDate:date3];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date5); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//日期格式化</span></span><br><span class="line">    <span class="built_in">NSDateFormatter</span> *formater1=[[<span class="built_in">NSDateFormatter</span> alloc]init];</span><br><span class="line">    formater1<span class="variable">.dateFormat</span>=<span class="string">@"yy-MM-dd HH:mm:ss"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *datestr1=[formater1 stringFromDate:date1];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,datestr1); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//字符串转化为日期</span></span><br><span class="line">    <span class="built_in">NSDate</span> *date6=[formater1 dateFromString:<span class="string">@"14-02-14 11:07:16"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,date6);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常用结构体">常用结构体</h3><p>下面用一段代码来解释常用的四种结构体。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import &lt;Foundation/Foundation.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSRange表示一个范围，(arg1, arg2) =&gt; (location, length)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSRange rg1=&#123;<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    NSRange rg2;</span><br><span class="line">    rg2.location=<span class="number">3</span>;</span><br><span class="line">    rg2.length=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    NSRange rg3=&#123;.location=<span class="number">3</span>,.length=<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//常用下面的方式定义 </span></span><br><span class="line">    NSRange rg4=NSMakeRange(<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//打印NSRange可以使用Foundation中方法 </span></span><br><span class="line">    NSLog(@<span class="string">"rg2 is %@"</span>, NSStringFromRange(rg4));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//注意不能直接NSLog(@"rg4 is %@", rg4)，因为rg4不是对象（准确的说%@是指针）而是结构体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSPoint表示一个点, (arg1, arg2) =&gt; (x, y)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSPoint p=NSMakePoint(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSPoint其实就是CGPoint</span></span><br><span class="line">    <span class="comment">//这种方式比较常见 </span></span><br><span class="line">    CGPoint p2=CGPointMake(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">    </span><br><span class="line">    NSLog(NSStringFromPoint(p2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSSize表示大小, (arg1, arg2) =&gt; (width, height)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSSize s=NSMakeSize(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSSize其实就是CGSize</span></span><br><span class="line">    <span class="comment">//这种方式比较常见 </span></span><br><span class="line">    CGSize s2=CGSizeMake(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line"></span><br><span class="line">    NSLog(NSStringFromSize(s2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*NSRect表示一个矩形, (arg1, arg2, arg3, arg4) =&gt; (x, y, width, height)*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>&#123;</span><br><span class="line">    NSRect r=NSMakeRect(<span class="number">10</span>, <span class="number">5</span>, <span class="number">100</span>, <span class="number">200</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSRect其实就是CGRect</span></span><br><span class="line">    <span class="comment">//这种方式比较常见 </span></span><br><span class="line">    CGRect r2=CGRectMake(<span class="number">10</span>, <span class="number">5</span>, <span class="number">100</span>, <span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    NSLog(NSStringFromRect(r2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        test1();</span><br><span class="line">        test2();</span><br><span class="line">        test3();</span><br><span class="line">        test4();</span><br><span class="line">    &#125; <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong></p>
+<pre><code><span class="number">1.</span>对于常用结构体在Foundation框架中都有一个对应的make方法进行创建；
+<span class="number">2.</span>对应的还都有一个NSStringFromXX方法来进行字符串转换，方便我们调试；
+<span class="number">3.</span>结构体类型的变量不能用<span class="string">"*"</span>来接收；
+</code></pre><h3 id="官方文档">官方文档</h3><p>Foundation框架介绍性的文章自然不少，这里给出<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/ObjC_classic/index.html#//apple_ref/doc/uid/20001091" target="_blank" rel="external">Foundation框架的官方文档</a>。</p>
+<p>Foundation框架所提供的很多类都具有相似的功能。</p>
+<ul>
+<li><p>Data storage —— 数据存储</p>
+<ul>
+<li>NSData, NSString 提供对二进制和字符串的存储</li>
+<li>NSValue, NSNumber 提供对c语言数据类型的存储</li>
+<li>NSArray, NSDictionary, NSSet 提供对对象类型数据的存储</li>
+</ul>
+</li>
+<li><p>Text and strings —— 文本和字符串</p>
+<ul>
+<li>NSCharacterSet 可以设置NSString 和 NSScanner 类中所使用的字符</li>
+<li>NSString 类可以展现文本和字符串，并提供方法进行字符串的查找、组合和比较</li>
+<li>NSScanner 类可以浏览NSString对象中的数字和单词</li>
+</ul>
+</li>
+<li><p>Dates and times —— 日期和时间</p>
+<ul>
+<li>NSDate, NSTimeZone, NSCalendar 存储时间和日期，并且展示日历信息，提供用于计算时间和日期不同的方法</li>
+<li>NSLocale 提供方法来显示世界上不同地域所以用的不同日期格式</li>
+</ul>
+</li>
+<li><p>Application coordination and timing —— 应用协同和定时</p>
+<ul>
+<li>NSNotification, NSNotificationCenter, NSNotificationQueue 提供一个通知系统</li>
+<li>NSTimer  用于定时发送消息</li>
+</ul>
+</li>
+<li><p>Object creation and disposal —— 对象创建和消除</p>
+<ul>
+<li>NSAutoreleasePool  类用于延时释放功能</li>
+</ul>
+</li>
+<li><p>Object distribution and persistence —— 对象分布和保持</p>
+<ul>
+<li>NSPropertyListSerialization</li>
+<li>NSCoder </li>
+</ul>
+</li>
+<li><p>Operating-system services —— 操作系统服务</p>
+<ul>
+<li>NSFileManager 提供固定的接口用于文件操作（文件的创建/删除/重命名等）</li>
+<li>NSThread, NSProcessInfo 可以创建多线程的应用，并查询应用所运行的环境</li>
+</ul>
+</li>
+<li><p>URL loading system —— URL加载系统</p>
+</li>
+</ul>
+
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/10/16/objective-c 其他常见数据类型/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 其他常见数据类型"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/10/16/objective-c 其他常见数据类型/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-10-15 </div>
 			<div class="article-title"><a href="/2015/10/15/objective-c 基本数据类型/" title="介绍objective-c中的基本数据类型">objective-c 基本数据类型</a></div>						
 		</h3>
@@ -503,39 +823,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2015-09-05 </div>
-			<div class="article-title"><a href="/2015/09/05/iOS学习笔记Animation/" title="介绍一些动画设计的灵感来源以及使用swift进行动画开发的代码">iOS 动画设计</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="先介绍一个wiki百科对动画原则的总结：">先介绍一个wiki百科对动画原则的总结：</h3><p><a href="https://en.wikipedia.org/wiki/12_basic_principles_of_animation#External_links">The 12 basic principles of animation</a></p>
-<p><a href="http://www.jianshu.com/p/1858a8733ba3">The illusion of life (Chinese)</a></p>
-<p><a href="https://vimeo.com/93206523">The illusion of life (video)</a></p>
-<p><a href="../video/the_illusion_of_life.html">The illusion of life (video2)</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/05/iOS学习笔记Animation/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/swift_icom.jpg" alt="iOS 动画设计"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/05/iOS学习笔记Animation/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-05 </div>
 			<div class="article-title"><a href="/2015/09/05/iOS学习笔记App/" title="iOS学习中遇到的一些记忆点以及一些问题的解决方法">iOS 自学</a></div>						
 		</h3>
 	
@@ -611,6 +898,39 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2015-09-05 </div>
+			<div class="article-title"><a href="/2015/09/05/iOS学习笔记Animation/" title="介绍一些动画设计的灵感来源以及使用swift进行动画开发的代码">iOS 动画设计</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-8">
+	
+	
+	  <h3 id="先介绍一个wiki百科对动画原则的总结：">先介绍一个wiki百科对动画原则的总结：</h3><p><a href="https://en.wikipedia.org/wiki/12_basic_principles_of_animation#External_links">The 12 basic principles of animation</a></p>
+<p><a href="http://www.jianshu.com/p/1858a8733ba3">The illusion of life (Chinese)</a></p>
+<p><a href="https://vimeo.com/93206523">The illusion of life (video)</a></p>
+<p><a href="../video/the_illusion_of_life.html">The illusion of life (video2)</a></p>
+	
+	</div>
+	
+	<div class="col-md-4">
+	  <div class="thumbnail"><a href="/2015/09/05/iOS学习笔记Animation/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/swift_icom.jpg" alt="iOS 动画设计"  class="nofancybox"></a></div>
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/09/05/iOS学习笔记Animation/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2015-09-03 </div>
 			<div class="article-title"><a href="/2015/09/03/Xcode-AutoLayout/" title="解释Xcode6中Auto Layout功能的使用">Xcode Auto Layout</a></div>						
 		</h3>
@@ -674,261 +994,6 @@ var _hmt = _hmt || [];
 </div>
 
 		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/freebsd-kernel/" title="This is a work note when I work in YuanV.">How to debug the freeBSD kernel</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="内核调试">内核调试</h3><pre><code><span class="title">kgdb</span> kernel.<span class="built_in">debug</span> vmcore
-</code></pre><p>在负载上面，kernel.debug文件名字为/kernel/SECkernel</p>
-<p>使用bt查看栈</p>
-<p>使用f [num]查看对应id号的栈信息</p>
-
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/01/freebsd-kernel/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/freebsd.png" alt="How to debug the freeBSD kernel"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/01/freebsd-kernel/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/git常用命令/" title="本人经常用到的一些git命令.">git常用命令</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="推送_git_push">推送  git push</h3><p>git push命令用于将本地分支的更新，推送到远程主机。它的格式与git pull命令相仿。</p>
-<pre><code>$ git push <span class="tag">&lt;<span class="title">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="title">本地分支名</span>&gt;</span>:<span class="tag">&lt;<span class="title">远程分支名</span>&gt;</span>
-</code></pre><p>注意，分支推送顺序的写法是&lt;来源地&gt;:&lt;目的地&gt;，所以git pull是&lt;远程分支&gt;:&lt;本地分支&gt;，而git push是&lt;本地分支&gt;:&lt;远程分支&gt;。</p>
-<p>如果省略远程分支名，则表示将本地分支推送与之存在”追踪关系”的远程分支(通常两者同名)，如果该远程分支不存在，则会被新建。</p>
-<pre><code>$ git <span class="keyword">push </span>origin master
-</code></pre><p>上面命令表示，将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建。<br>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/01/git常用命令/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/git_icon.jpg" alt="git常用命令"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/01/git常用命令/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/一只小鸟告诉我的事/" title="《一只小鸟告诉我的事——比兹·斯通自传》读后感及笔记">一只小鸟告诉我的事——比兹·斯通自传</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>1、人一定要有自信，哪怕是盲目的自信，也比毫无自信或者自卑强上百倍。</p>
-<p>2、聪明人和有才华的人在一起才能碰撞出创业的火花，去让自己变强，然后找寻志同道合的聪明有才之人一起创业吧。</p>
-<p>3、对自己热爱的事业100%付出，如果你没有做到这一点，应该考虑是否要换一换为之努力的对象了。</p>
-<p>4、不要低估自己的想法，很多伟大的产品都是在怀疑的眼光下诞生的。<br>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/01/一只小鸟告诉我的事/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/bizstone.jpg" alt="一只小鸟告诉我的事——比兹·斯通自传"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/01/一只小鸟告诉我的事/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/巴比伦富翁理财课/" title="《巴比伦富翁理财课》读后感及笔记">巴比伦富翁理财课</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>《巴比伦富翁理财课》这本书很容易读懂，没有什么生涩的金融学术语，都是最直白的对话。</p>
-<p>这本书给我最大的惊喜在于古巴比伦人关于理财的观念，一直都以为古人只懂得攒钱的道理，但没想到他们竟然也通晓投资的真谛，关于保护财产的观念很值得现代人，尤其是热爱投资人士的关注。</p>
-<p>接下来就简单记下这本书里关于理财的规则（其实规则真的很简单，但其背后的道理却意义深远）。<br>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/01/巴比伦富翁理财课/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/babilun.jpg" alt="巴比伦富翁理财课"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/01/巴比伦富翁理财课/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-01 </div>
-			<div class="article-title"><a href="/2015/09/01/learn-English-Grammar/" title="《像高手一样学语法》读后感及笔记">像高手一样学语法</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h4 id="解套/找茬/用套">解套/找茬/用套</h4><p>通过美剧或者电影寻找套，然后解套</p>
-<p>学习语言靠的并不是‘模仿能力’，而是‘类比能力’，所以在解套后，多多使用，一样要以用上一个老句式为荣，以用上一个陌生句式为耻。。。</p>
-<h4 id="英语语法的本质">英语语法的本质</h4><p>英语是一种‘后找补’的语言，以最快的方式构成一个句子，然后添加各种补丁。。。</p>
-<p>把一个句子找补的部分去掉，这句话应该还是一句人话，也就是语法上正确的句子</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/01/learn-English-Grammar/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/xueyufa.jpg" alt="像高手一样学语法"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/01/learn-English-Grammar/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-08-14 </div>
-			<div class="article-title"><a href="/2015/08/14/Ubuntu 上安装MySQL/" >Install MySQL on Ubuntu</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <h3 id="介绍">介绍</h3><p>是一款免费的数据库程序，为Oracle公司旗下产品。</p>
-<h3 id="安装MySQL">安装MySQL</h3><p>要安装 MySQL，可以在终端提示符后运行下列命令：</p>
-<pre><code>sudo apt-get install mysql-<span class="keyword">server</span> mysql-<span class="keyword">client</span> <span class="preprocessor">#中途会让你输入一次root用户密码</span>
-</code></pre>
-	
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/08/14/Ubuntu 上安装MySQL/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-23 </div>
-			<div class="article-title"><a href="/2015/07/23/freeBSD内核参数/" >freeBSD内核参数的获取、设置与添加</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>在freeBSD的内核中有很多系统参数，比如关于网络的、关于系统参数的等等，这些参数有些我们可以直接在命令行和用户态程序中进行获取和设置，方法如下：</p>
-<h3 id="在命令行中获取和设置">在命令行中获取和设置</h3><p>通过命令sysctl来获取和设置，可以通过</p>
-<pre><code>sysctl -<span class="literal">a</span>
-</code></pre><p>来查看系统中所有的内核参数</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/07/23/freeBSD内核参数/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/freebsd.png" alt="freeBSD内核参数的获取、设置与添加"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/07/23/freeBSD内核参数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-07-09 </div>
-			<div class="article-title"><a href="/2015/07/09/ospf配置/" >ospf配置</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <p>ospf需要多台机器之间配合才能有用，但这里只介绍一台机器的配置情况，其它机器只需修改某些特殊信息，需要修改的信息会用加粗字体来标注。</p>
-	
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/07/09/ospf配置/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
 
 		</div>
 
@@ -983,7 +1048,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/git/">git<span>2</span></a></li>
 		
-			<li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>7</span></a></li>
+			<li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>15</span></a></li>
 		
 			<li><a href="/categories/markdown/">markdown<span>1</span></a></li>
 		
@@ -1000,45 +1065,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Animation/">Animation<span>2</span></a></li>
-		
-			<li><a href="/tags/shell/">shell<span>2</span></a></li>
-		
-			<li><a href="/tags/Swift/">Swift<span>3</span></a></li>
-		
-			<li><a href="/tags/illusion/">illusion<span>1</span></a></li>
-		
-			<li><a href="/tags/git/">git<span>3</span></a></li>
-		
-			<li><a href="/tags/MySQL/">MySQL<span>1</span></a></li>
-		
-			<li><a href="/tags/iOS/">iOS<span>6</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
-		
-			<li><a href="/tags/理财/">理财<span>1</span></a></li>
-		
-			<li><a href="/tags/English/">English<span>10</span></a></li>
-		
-			<li><a href="/tags/objective-c/">objective-c<span>1</span></a></li>
-		
-			<li><a href="/tags/Video/">Video<span>6</span></a></li>
-		
-			<li><a href="/tags/sed/">sed<span>1</span></a></li>
-		
-			<li><a href="/tags/创业/">创业<span>1</span></a></li>
-		
-			<li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
-		
 			<li><a href="/tags/自传/">自传<span>1</span></a></li>
-		
-			<li><a href="/tags/时钟/">时钟<span>1</span></a></li>
-		
-			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
 		
 			<li><a href="/tags/Xcode/">Xcode<span>2</span></a></li>
 		
+			<li><a href="/tags/sed/">sed<span>1</span></a></li>
+		
+			<li><a href="/tags/理财/">理财<span>1</span></a></li>
+		
+			<li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
+		
 			<li><a href="/tags/freeBSD/">freeBSD<span>4</span></a></li>
+		
+			<li><a href="/tags/illusion/">illusion<span>1</span></a></li>
+		
+			<li><a href="/tags/创业/">创业<span>1</span></a></li>
+		
+			<li><a href="/tags/Video/">Video<span>6</span></a></li>
+		
+			<li><a href="/tags/objective-c/">objective-c<span>9</span></a></li>
+		
+			<li><a href="/tags/MySQL/">MySQL<span>1</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
+		
+			<li><a href="/tags/English/">English<span>10</span></a></li>
+		
+			<li><a href="/tags/Animation/">Animation<span>2</span></a></li>
+		
+			<li><a href="/tags/时钟/">时钟<span>1</span></a></li>
+		
+			<li><a href="/tags/ospf/">ospf<span>1</span></a></li>
+		
+			<li><a href="/tags/git/">git<span>3</span></a></li>
+		
+			<li><a href="/tags/shell/">shell<span>2</span></a></li>
+		
+			<li><a href="/tags/iOS/">iOS<span>14</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>21</span></a></li>
@@ -1054,23 +1119,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2015/10/15/objective-c 基本数据类型/"  title="介绍objective-c中的基本数据类型" ><i class="fa fa-file-o"></i>objective-c 基本数据类型...</a>
+        <a href="/2015/10/21/block/" ><i class="fa fa-file-o"></i>block —— 代码块...</a>
       </li>
     
       <li>
-        <a href="/2015/10/10/英式发音VS美式发音/"  title="此文主要讲解英式音标和美式音标的区别" ><i class="fa fa-file-o"></i>英式发音VS美式发音...</a>
+        <a href="/2015/10/21/KVC与KVO/" ><i class="fa fa-file-o"></i>objective-c KVC与KVO...</a>
       </li>
     
       <li>
-        <a href="/2015/10/10/清辅音浊化规则/"  title="此文主要讲解清辅音浊化的规则" ><i class="fa fa-file-o"></i>清辅音浊化规则...</a>
+        <a href="/2015/10/20/内存管理_MRC/" ><i class="fa fa-file-o"></i>objective-c 内存管理 —— MRC...</a>
       </li>
     
       <li>
-        <a href="/2015/09/29/英式音标VS美式音标/"  title="此文主要讲解英式音标和美式音标的区别" ><i class="fa fa-file-o"></i>英式音标VS美式音标...</a>
+        <a href="/2015/10/20/内存管理_ARC/" ><i class="fa fa-file-o"></i>objective-c 内存管理 —— ARC...</a>
       </li>
     
       <li>
-        <a href="/2015/09/28/英语48个音标——8双元音/"  title="本文主要通过新东方老师的视频来讲解8个双元音的发音方式。" ><i class="fa fa-file-o"></i>英语48个音标——8双元音...</a>
+        <a href="/2015/10/19/category/" ><i class="fa fa-file-o"></i>category —— 分类...</a>
       </li>
     
   </ul>

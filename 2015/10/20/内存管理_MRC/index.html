@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>objective-c 内存管理 —— MRC | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="引用计数在objective-c中没有类似JAVA中的垃圾回收器，但也不像c语言那样直接释放。
+在每个对象中都有一个retainCount的变量用来对对象的引用进行计数。
+可以增加retainCount的方法有：">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="objective-c 内存管理 —— MRC"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> objective-c 内存管理 —— MRC</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <h3 id="引用计数">引用计数</h3><p>在objective-c中没有类似JAVA中的垃圾回收器，但也不像c语言那样直接释放。</p>
+<p>在每个对象中都有一个retainCount的变量用来对对象的引用进行计数。</p>
+<p>可以增加retainCount的方法有：</p>
+<a id="more"></a>
+<ul>
+<li>alloc</li>
+<li>retain</li>
+<li>new</li>
+<li>copy</li>
+</ul>
+<p>可以减少retainCount的方法有：</p>
+<ul>
+<li>release</li>
+</ul>
+<h3 id="MRC_手动引用计数">MRC 手动引用计数</h3><p>在MRC模式下，当某个对象有新的引用时，需要使用[object retain]方法来手动的增加retainCount的值；而当某个对象不需要某个引用时，则需要使用[object release]方法来手动减少retainCount的值。</p>
+<p>当retainCount的值为0时，会自动调用dealloc释放对象。</p>
+<p>[object release]方法只会将引用计数的值-1，并不会将引用所使用的对象指针赋值为nil，所以在调用此方法后需要手动给对象指针赋值为nil，以防出现野指针。</p>
+<h3 id="@autorelease_延迟释放">@autorelease 延迟释放</h3><p>在MRC的基础上发展出了@autorelease延迟自动释放功能，注意，此功能和后文所说的ARC功能是不一样的。</p>
+<p>如果想使用延时释放功能，需要两个条件：</p>
+<ul>
+<li>拥有@autorelease代码块</li>
+<li>对象调用了autorelease方法</li>
+</ul>
+<p>此功能只是在调用autorelease方法时将对象加入到@autorelease代码块的release队列中，当执行到代码块的后大括号时，将队列中的所有对象一次调用release方法进行释放。所以了autorelease方法只是做了一个延迟操作。</p>
+<p>需要注意的是，当了@autorelease代码块结束时并不会将代码块中对象的引用计数清零，如果对象的引用计数大于1，当代码块结束后，对象仍然拥有大于0的引用计数值。</p>
+<p>一句话，autorelease方法只是将对象的1次release操作延迟到了代码块结束时。</p>
+<p>@autorelease代码块可以嵌套，但是一个对象不能调用多次autorelease方法，否则可能会引起问题。</p>
+<p><strong>总结</strong></p>
+<pre><code><span class="number">1.</span>autorelease方法不会改变对象的引用计数器，只是将这个对象放到自动释放池中；
+<span class="number">2.</span>自动释放池实质是当自动释放池销毁后调用对象的release方法，不一定就能销毁对象（例如如果一个对象的引用计数器&gt;<span class="number">1</span>则此时就无法销毁）；
+<span class="number">3.</span>由于自动释放池最后统一销毁对象，因此如果一个操作比较占用内存（对象比较多或者对象占用资源比较多），最好不要放到自动释放池或者考虑放到多个自动释放池；
+<span class="number">4.</span>ObjC中类库中的静态方法一般都不需要手动释放，内部已经调用了autorelease方法；
+</code></pre><h3 id="@property_属性变量">@property 属性变量</h3><p>@property可以创建属性变量，相当于swift中的计算属性，可以创建一个拥有getter和setter方法的变量。</p>
+<p>@property后面可以跟三个参数，用于指定创建的属性变量的具体属性，语法规则如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">property(arg1,</span> arg2, arg3) ObjectType *ObjectName</span>;</span><br></pre></td></tr></table></figure>
+<p>其中参数arg1代表原子性；arg2代表读写属性；arg3代表set方法处理。</p>
+<p>具体可选值如下表：</p>
+<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/property.png" alt="property"></p>
+<p>示例如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readwrite</span>, retain) <span class="built_in">NSNumber</span> *num;</span><br></pre></td></tr></table></figure>
+<p><strong>Tips</strong></p>
+<pre><code><span class="number">1.</span>retain，通常用于非字符串对象
+<span class="number">2.</span><span class="keyword">copy</span>，通常用于字符串对象、block、<span class="built_in">NSArray</span>、<span class="built_in">NSDictionary</span>
+</code></pre><p>当给一个属性变量赋值一个对象时，不需要再手动的调用retain方法给这个对象的引用计数+1，但是仍需要使用release方法进行释放。</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/10/21/KVC与KVO/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/10/20/内存管理_ARC/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/10/20/内存管理_MRC/" data-title="objective-c 内存管理 —— MRC" data-url="http://yoursite.com/2015/10/20/内存管理_MRC/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-10-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>15</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/iOS/">iOS<span>14</span></a></li> <li><a href="/tags/objective-c/">objective-c<span>9</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#引用计数"><span class="toc-article-text">引用计数</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#MRC_手动引用计数"><span class="toc-article-text">MRC 手动引用计数</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#@autorelease_延迟释放"><span class="toc-article-text">@autorelease 延迟释放</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#@property_属性变量"><span class="toc-article-text">@property 属性变量</span></a></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
