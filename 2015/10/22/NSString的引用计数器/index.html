@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NSString的引用计数器 | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="在好多语言中字符串都是一个特殊的对象，在ObjC中也不例外。NSString作为一个对象类型存储在堆中，多数情况下它跟一般的对象类型没有区别，但是这里我们需求强调一点那就是字符串的引用计数器。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="NSString的引用计数器"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> NSString的引用计数器</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p>在好多语言中字符串都是一个特殊的对象，在ObjC中也不例外。NSString作为一个对象类型存储在堆中，多数情况下它跟一般的对象类型没有区别，但是这里我们需求强调一点那就是字符串的引用计数器。</p>
+<a id="more"></a>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *str1=<span class="string">@"Kenshin"</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str1)=%i"</span>,(<span class="keyword">unsigned</span> <span class="keyword">long</span>)str1<span class="variable">.retainCount</span>); <span class="comment">//结果：-1</span></span><br><span class="line">    [str1 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str1)=%i"</span>,(<span class="keyword">unsigned</span> <span class="keyword">long</span>)str1<span class="variable">.retainCount</span>); <span class="comment">//结果：-1</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *str2=[<span class="built_in">NSString</span> stringWithString:<span class="string">@"Kaoru"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str2)=%i"</span>,str2<span class="variable">.retainCount</span>); <span class="comment">//结果：-1</span></span><br><span class="line">    [str1 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str2)=%i"</span>,str2<span class="variable">.retainCount</span>); <span class="comment">//结果：-1</span></span><br><span class="line">    <span class="built_in">NSString</span> *str2_1=[<span class="built_in">NSString</span> stringWithString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Kaoru %@"</span>,<span class="string">@"sun"</span>]];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str2_1)=%i"</span>,str2_1<span class="variable">.retainCount</span>);<span class="comment">//结果：2 </span></span><br><span class="line">    [str2_1 release];</span><br><span class="line">    [str2_1 release];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *str3=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Rosa %@"</span>,<span class="string">@"Sun"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str3)=%i"</span>,str3<span class="variable">.retainCount</span>); <span class="comment">//结果：1</span></span><br><span class="line">    [str3 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str3)=%i"</span>,str3<span class="variable">.retainCount</span>); <span class="comment">//结果：2</span></span><br><span class="line">    [str3 release];</span><br><span class="line">    [str3 release];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *str4=[<span class="built_in">NSString</span> stringWithUTF8String:<span class="string">"Jack"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str4)=%i"</span>,str4<span class="variable">.retainCount</span>); <span class="comment">//结果：1</span></span><br><span class="line">    [str4 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str4)=%i"</span>,str4<span class="variable">.retainCount</span>); <span class="comment">//结果：2</span></span><br><span class="line">    [str4 release];</span><br><span class="line">    [str4 release];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *str5=[<span class="built_in">NSString</span> stringWithCString:<span class="string">"Tom"</span> encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str5)=%i"</span>,str5<span class="variable">.retainCount</span>); <span class="comment">//结果：1</span></span><br><span class="line">    [str5 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str5)=%i"</span>,str5<span class="variable">.retainCount</span>); <span class="comment">//结果：2</span></span><br><span class="line">    [str5 release];</span><br><span class="line">    [str5 release];  </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableString</span> *str6=<span class="string">@"Jerry"</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str6)=%i"</span>,str6<span class="variable">.retainCount</span>); <span class="comment">//结果：-1</span></span><br><span class="line">    [str6 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str6)=%i"</span>,str6<span class="variable">.retainCount</span>); <span class="comment">//结果：-1</span></span><br><span class="line">    [str6 release];</span><br><span class="line">    [str6 release];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableArray</span> *str7=[<span class="built_in">NSMutableString</span> stringWithString:<span class="string">@"Lily"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str7)=%i"</span>,str7<span class="variable">.retainCount</span>); <span class="comment">//结果：1</span></span><br><span class="line">    [str7 retain];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"retainCount(str7)=%i"</span>,str7<span class="variable">.retainCount</span>); <span class="comment">//结果：2</span></span><br><span class="line">    [str7 release];</span><br><span class="line">    [str7 release];</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看完上面的例子如果不了解NSString的处理你也许会有点奇怪（注意上面的代码请在Xcode5下运行）？请看下面的解释</p>
+<pre><code><span class="number">1.</span>str1是一个字符串常量，它存储在常量区，系统不会对它进行引用计数，因此无论是初始化还是做retain操作其引用计数器均为-<span class="number">1</span>；
+<span class="number">2.</span>str3、str4、str5创建的对象同一般对象类似，存储在堆中，系统会对其进行引用计数；
+<span class="number">3.</span>采用stringWithString定义的变量有些特殊，当后面的字符串是字符串常量，则它本身就作为字符串常用量存储（str2），类似于str1；如果后面的参数是通过类似于str3、str4、str5的定义，那么它本身就是一个普通对象，只是后面的对象引用计数器默认为<span class="number">1</span>，当给它赋值时会做一次拷贝操作（浅拷贝），引用计数器加<span class="number">1</span>，所有str2_1引用计数器为<span class="number">2</span>；
+<span class="number">4.</span>str6其实和str1类似，虽然定义的是可变数组，但是它的本质还是字符串常量，事实上对于可变字符串只有为字符串常量时引用计数器才为-<span class="number">1</span>，其他情况它的引用计数器跟一般对象完全一致；
+</code></pre><p><strong>Tips</strong></p>
+<pre><code>注意上面这段代码的运行结果是在Xcode5中运行的结果，事实上针对最新的Xcode6由于LLVM的优化，只有str2_1和str7的引用计数器为<span class="number">1</span>（str7 retain一次后第二次为<span class="number">2</span>），其他均为-<span class="number">1</span>。
+</code></pre>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/10/23/归档与解档/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/10/22/文件操作与归档/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/10/22/NSString的引用计数器/" data-title="NSString的引用计数器" data-url="http://yoursite.com/2015/10/22/NSString的引用计数器/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-10-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>19</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/iOS/">iOS<span>18</span></a></li> <li><a href="/tags/objective-c/">objective-c<span>13</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
