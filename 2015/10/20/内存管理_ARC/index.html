@@ -190,7 +190,11 @@ __unsafe_unretained
 <h5 id="__unsafe_unretained">__unsafe_unretained</h5><p>ARC是在iOS 5引入的，而这个修饰符主要是为了在ARC刚发布时兼容iOS 4以及版本更低的设备，因为这些版本的设备没有weak pointer system，简单的理解这个系统就是我们上面讲weak时提到的，能够在weak引用指向对象被释放后，把引用值自动设为nil的系统。这个修饰符在定义property时对应的是”unsafe_unretained”，实际可以将它理解为MRC时代的assign：纯粹只是将引用指向对象，没有任何额外的操作，在指向对象被释放时依然原原本本地指向原来被释放的对象（所在的内存区域）。所以非常不安全。</p>
 <p>现在可以完全忽略掉这个修饰符了。</p>
 <h3 id="修饰符的使用语法">修饰符的使用语法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ClassName * qualifier variableName;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> * __<span class="keyword">weak</span> str = <span class="string">@"hehe"</span>; <span class="comment">// 正确</span></span><br><span class="line">__<span class="keyword">weak</span> <span class="built_in">NSString</span> *str = <span class="string">@"hehe"</span>;  <span class="comment">// 错误</span></span><br></pre></td></tr></table></figure>
-	  
+<p><strong>Tips</strong></p>
+<pre><code><span class="number">1.</span>在iOS开发中使用<span class="keyword">strong</span>、<span class="keyword">weak</span>代替之前的retain、<span class="keyword">assign</span>（基本类型使用<span class="keyword">assign</span>，因为我们不需要对基本类型进行内存管理）；
+<span class="number">2.</span>如果一个属性使用<span class="keyword">IBOutlet</span>修饰（也就是此属性是strongboard中组件）那么使用<span class="keyword">weak</span>；
+<span class="number">3.</span>如果一个属性不是storyboard组件（一般纯代码编写界面时），使用<span class="keyword">strong</span>；
+</code></pre>	  
 	</div>
 
 	<div>
