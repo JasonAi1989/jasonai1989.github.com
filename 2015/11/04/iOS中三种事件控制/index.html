@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS 三种事件控制 | Jason&amp;Genius</title>
+  <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="iOS 三种事件控制"/>
+  <meta property="og:site_name" content="Jason&amp;Genius"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8d260eca9df72960215db17df81a430b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="baidu-site-verification" content="4vMv6f8NfR" />
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Jason&amp;Genius</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> iOS 三种事件控制</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div class="col-md-9">
+	
+
+			
+
+	<!-- content -->
+	<div class="mypage">		
+	    <p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/ios_events.png" alt="ios evnets"></p>
+<a id="more"></a>
+<ol>
+<li>触摸事件：通过触摸、手势进行触发（例如手指点击、缩放）</li>
+<li>运动事件：通过加速器进行触发（例如手机晃动）</li>
+<li>远程控制事件：通过其他远程设备触发（例如耳机控制按钮）</li>
+</ol>
+<h3 id="触摸事件">触摸事件</h3><p>继承UIResponder的对象均能接收触摸事件，而常用的UIView、UIViewController、UIApplication都继承自UIResponder，因此，基本上所有的UIKit控件和视图控制器均能接收触摸事件。</p>
+<p>触摸事件所需要的方法：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一根或多根手指开始触摸屏幕时执行；</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">touchesBegan:</span>(NSSet *)touches <span class="string">withEvent:</span>(UIEvent *)event;</span><br><span class="line"></span><br><span class="line"><span class="comment">//一根或多根手指在屏幕上移动时执行，注意此方法在移动过程中会重复调用；</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">touchesMoved:</span>(NSSet *)touches <span class="string">withEvent:</span>(UIEvent *)event;</span><br><span class="line"></span><br><span class="line"><span class="comment">//一根或多根手指触摸结束离开屏幕时执行；</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">touchesEnded:</span>(NSSet *)touches <span class="string">withEvent:</span>(UIEvent *)event;</span><br><span class="line"></span><br><span class="line"><span class="comment">//触摸意外取消时执行（例如正在触摸时打入电话）；</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">touchesCancelled:</span>(NSSet *)touches <span class="string">withEvent:</span>(UIEvent *)event;</span><br></pre></td></tr></table></figure>
+<p>当执行触摸事件时，上述函数会传入 (NSSet *)touches对象，这个集合中每一个元素都是<br>UITouch类型的，通过</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UITouch *touch=[touches anyObject]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>获取一个或者多个触摸对象。</p>
+<p>UITouch类中包涵如下属性：</p>
+<ul>
+<li>window：触摸时所在的窗口</li>
+<li>view：触摸时所在视图</li>
+<li>tapCount:短时间内点击的次数</li>
+<li>timestamp:触摸产生或变化的时间戳</li>
+<li>phase:触摸周期内的各个状态</li>
+<li>locationInView:方法：取得在指定视图的位置</li>
+<li>previousLocationInView:方法：取得移动的前一个位置</li>
+</ul>
+<h4 id="响应者链">响应者链</h4><p>在视图的多层架构中，可以按照视图的叠加层次进行链式响应，如果当前视图无法对触摸事件进行响应，事件的响应者会变为当前视图的包涵视图，以此类推，从而使事件的响应者形成一个链，叫做响应者链。如果响应者链中的某个响应者处理了事件，则此事件不会继续向下传播；反之则会一直向下传播，直到此事件被丢弃为止。</p>
+<p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/response_chain.png" alt="response chain"></p>
+<p>响应者链中的响应者不能处理事件的条件：</p>
+<ul>
+<li>userInteractionEnabled=NO</li>
+<li>hidden=YES</li>
+<li>alpha=0~0.01</li>
+<li>没有实现开始触摸方法（注意是touchesBegan:withEvent:而不是移动和结束触摸事件）</li>
+</ul>
+<p>当然前三点都是针对UIView控件或其子控件而言的，第四点可以针对UIView也可以针对视图控制器等其他UIResponder子类。对于第四种情况这里再次强调是对象中重写了开始触摸方法，则会处理这个事件，如果仅仅写了移动、停止触摸或取消触摸事件（或者这三个事件都重写了）没有写开始触摸事件，则此事件该对象不会进行处理。</p>
+<h4 id="手势识别系统">手势识别系统</h4><p>UIKit封装了6种基本手势，分别为：</p>
+<table>
+<thead>
+<tr>
+<th>手势类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UITapGestureRecognizer</td>
+<td>点按手势</td>
+</tr>
+<tr>
+<td>UIPinchGestureRecognizer</td>
+<td>捏合手势</td>
+</tr>
+<tr>
+<td>UIPanGestureRecognizer</td>
+<td>拖动手势</td>
+</tr>
+<tr>
+<td>UISwipeGestureRecognizer</td>
+<td>轻扫手势，支持四个方向的轻扫，但是不同的方向要分别定义轻扫手势</td>
+</tr>
+<tr>
+<td>UIRotationGestureRecognizer</td>
+<td>旋转手势</td>
+</tr>
+<tr>
+<td>UILongPressGestureRecognizer</td>
+<td>长按手势</td>
+</tr>
+</tbody>
+</table>
+<p>所有的手势操作都继承于UIGestureRecognizer，这个类本身不能直接使用。这个类中定义了这几种手势共有的一些属性和方法(下表仅列出常用属性和方法)：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>属性</td>
+<td></td>
+</tr>
+<tr>
+<td>@property(nonatomic,readonly) UIGestureRecognizerState state;</td>
+<td>手势状态</td>
+</tr>
+<tr>
+<td>@property(nonatomic, getter=isEnabled) BOOL enabled;</td>
+<td>手势是否可用</td>
+</tr>
+<tr>
+<td>@property(nonatomic,readonly) UIView *view;</td>
+<td>触发手势的视图（一般在触摸执行操作中我们可以通过此属性获得触摸视图进行操作）</td>
+</tr>
+<tr>
+<td>@property(nonatomic) BOOL delaysTouchesBegan;</td>
+<td>手势识别失败前不执行触摸开始事件，默认为NO；如果为YES，那么成功识别则不执行触摸开始事件，失败则执行触摸开始事件；如果为NO，则不管成功与否都执行触摸开始事件；</td>
+</tr>
+<tr>
+<td>方法</td>
+<td></td>
+</tr>
+<tr>
+<td>- (void)addTarget:(id)target action:(SEL)action;</td>
+<td>添加触摸执行事件</td>
+</tr>
+<tr>
+<td>- (void)removeTarget:(id)target action:(SEL)action;</td>
+<td>移除触摸执行事件</td>
+</tr>
+<tr>
+<td>- (NSUInteger)numberOfTouches;</td>
+<td>触摸点的个数（同时触摸的手指数）</td>
+</tr>
+<tr>
+<td>- (CGPoint)locationInView:(UIView *)view;</td>
+<td>在指定视图中的相对位置</td>
+</tr>
+<tr>
+<td>- (CGPoint)locationOfTouch:(NSUInteger)touchIndex inView:(UIView*)view;</td>
+<td>触摸点相对于指定视图的位置</td>
+</tr>
+<tr>
+<td>- (void)requireGestureRecognizerToFail:(UIGestureRecognizer *)otherGestureRecognizer;</td>
+<td>指定一个手势需要另一个手势执行失败才会执行</td>
+</tr>
+<tr>
+<td>代理方法</td>
+<td></td>
+</tr>
+<tr>
+<td>- (BOOL)gestureRecognizer:(UIGestureRecognizer <em>)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer </em>)otherGestureRecognizer;</td>
+<td>一个控件的手势识别后是否阻断手势识别继续向下传播，默认返回NO；如果为YES，响应者链上层对象触发手势识别后，如果下层对象也添加了手势并成功识别也会继续执行，否则上层对象识别后则不再继续传播；</td>
+</tr>
+</tbody>
+</table>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/10/23/复制/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/11/04/iOS中三种事件控制/" data-title="iOS 三种事件控制" data-url="http://yoursite.com/2015/11/04/iOS中三种事件控制/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-11-04 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>20</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/iOS/">iOS<span>19</span></a></li> <li><a href="/tags/objective-c/">objective-c<span>14</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#触摸事件"><span class="toc-article-text">触摸事件</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#响应者链"><span class="toc-article-text">响应者链</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#手势识别系统"><span class="toc-article-text">手势识别系统</span></a></li></ol></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	
+
+</div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Jason Ai
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<br>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'jasongenius' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
