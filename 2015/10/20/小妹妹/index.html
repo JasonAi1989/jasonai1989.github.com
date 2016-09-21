@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Jason&amp;Genius</title>
+  <title>objective-c 内存管理 —— MRC | Jason&amp;Genius</title>
   <meta name="author" content="Jason Ai">
+  
+  <meta name="description" content="本人是做电脑维护的，曾经在电脑公司上班，公司是方正品牌电脑市级代理商。由于电脑方面技术较强，所以公司给了一个售后服务经理的职称，也就是叫起来好听一点而已，实际上也一样是技术员，不是说给了一个经理的称呼就可以稳坐办公室了。大家有在电脑公司做过的都知道，包括刚从学校出来的人，公司给你印的名片都写著工程师">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="objective-c 内存管理 —— MRC"/>
   <meta property="og:site_name" content="Jason&amp;Genius"/>
 
   
@@ -93,430 +95,28 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header">
-  <h1>Jason&amp;Genius</h1>
-</div>
+    	 
 
-<div class="row page">
 
+	
+		<div class="page-header">		
+			<h1> objective-c 内存管理 —— MRC</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
 	
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
-      <i class="fa fa-heart"></i>
-      Go on ...
-</div>    
-
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
 			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2025-09-28 </div>
-			<div class="article-title"><a href="/2025/09/28/英语发音汇总/" title="本文主要列出了英语发音系列文章的链接，方便朋友们对文章的查找。">英语发音系列文章汇总［置顶］</a></div>						
-		</h3>
-	
 
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>本文主要列出了英语发音系列文章的链接，方便朋友们对文章的查找。其他不属于本系列的英语文章可以在“English”分类中进行查找。英语学习，与君共勉。</p>
-<h3 id="本系列目录">本系列目录</h3><p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2025/09/28/英语发音汇总/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/48symbol.png" alt="英语发音系列文章汇总［置顶］"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2025/09/28/英语发音汇总/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-12-23 </div>
-			<div class="article-title"><a href="/2015/12/23/失去爆破与不完全爆破/" title="本文主要介绍英文发音中的失去爆破与不完全爆破现象。">失去爆破与不完全爆破</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  
-	
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/12/23/失去爆破与不完全爆破/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-12-08 </div>
-			<div class="article-title"><a href="/2015/12/08/34枚金币时间手账/" >34枚金币时间手账</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>这款软件是一个独立软件，用于时间管理，其理论依据是新东方老师——艾力的《34枚金币时间管理法》。本人也是深受此方法的帮助，现在的工作效率以及对时间的管理能力都有非常大的提升，所以想做一款相关的管理软件，以此来帮助更多的朋友提高工作效率。</p>
-<p>当前，此软件的功能还不完善，并且有可能存在一些bug需要修改，如果您发现了bug，可以发邮件给我，或者直接在github上发补丁。</p>
-<p>在接下来的开发中，会加入过往时间的事件修改，饼形图统计，以及多种格式的数据导出功能。</p>
-<p>如果您有任何的意见或者建议，均可以发送邮件给我，我的邮件地址是：</p>
-<p>aizhaoyu@163.com</p>
-
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/12/08/34枚金币时间手账/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/34Logo120@3x.png" alt="34枚金币时间手账"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/12/08/34枚金币时间手账/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-11-04 </div>
-			<div class="article-title"><a href="/2015/11/04/iOS中三种事件控制/" >iOS 三种事件控制</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p><img src="http://7xj4cp.com1.z0.glb.clouddn.com/ios_events.png" alt="ios evnets"></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/11/04/iOS中三种事件控制/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="iOS 三种事件控制"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/11/04/iOS中三种事件控制/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-23 </div>
-			<div class="article-title"><a href="/2015/10/23/归档与解档/" >Objective-c 归档与解档</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>归档，在其他语言中又叫“序列化”，就是将对象保存到硬盘；解档，在其他语言又叫“反序列化”就是将硬盘文件还原成对象。其实归档就是数据存储的过程，在IOS中数据的存储有五种方式：</p>
-<pre><code><span class="number">1.</span>xml属性列表（plist归档）
-
-<span class="number">2.</span>NSKeyedArchiver归档（加密形式）
-
-<span class="number">3.</span>NSUserDefaults（偏好设置）
-
-<span class="number">4.</span>SQLite3(嵌入式数据库)
-
-<span class="number">5.</span>Core Data（面向对象方式的嵌入式数据库）
-</code></pre>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/23/归档与解档/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="Objective-c 归档与解档"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/23/归档与解档/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-23 </div>
-			<div class="article-title"><a href="/2015/10/23/复制/" >Objective-c  拷贝</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>拷贝也叫复制，在编程中对象的拷贝使非常常见的操作，这篇文章主要说明ObjC中的两种拷贝方式——浅拷贝与深拷贝（基本上所有的面向对象编程语言中都含有这两种拷贝方式）。</p>
-<p>除了浅拷贝和深拷贝外还要介绍一下ObjC中的两个拷贝方法 —— copy 和 mutablecopy。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/23/复制/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="Objective-c  拷贝"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/23/复制/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-22 </div>
-			<div class="article-title"><a href="/2015/10/22/NSString的引用计数器/" >NSString的引用计数器</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>在好多语言中字符串都是一个特殊的对象，在ObjC中也不例外。NSString作为一个对象类型存储在堆中，多数情况下它跟一般的对象类型没有区别，但是这里我们需求强调一点那就是字符串的引用计数器。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/22/NSString的引用计数器/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="NSString的引用计数器"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/22/NSString的引用计数器/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-22 </div>
-			<div class="article-title"><a href="/2015/10/22/文件操作与归档/" >Objective-c 文件操作</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>直接贴代码。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/22/文件操作与归档/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="Objective-c 文件操作"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/22/文件操作与归档/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-21 </div>
-			<div class="article-title"><a href="/2015/10/21/block/" >block —— 代码块</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>ObjC中的Block是对闭包的实现，而闭包的主要作用就是实现c语言中的回调函数的特性。说到回调函数的特性，protocol+委托功能不也是对回调函数的一种实现嘛，所以在某些场合Block是能替换protocol+委托功能，但如果要实现的方法比较多还是用protocol+委托的方式来实现吧。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/21/block/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="block —— 代码块"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/21/block/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-21 </div>
-			<div class="article-title"><a href="/2015/10/21/KVC与KVO/" >objective-c KVC与KVO</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="概述">概述</h3><p>KVC和KVO都应算是动态特性。</p>
-<ul>
-<li>KVC（Key Value Coding）键值编码</li>
-<li>KVO（Key Value Observing）键值监测</li>
-</ul>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/21/KVC与KVO/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c KVC与KVO"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/21/KVC与KVO/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-20 </div>
-			<div class="article-title"><a href="/2015/10/20/内存管理_MRC/" >objective-c 内存管理 —— MRC</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="引用计数">引用计数</h3><p>在objective-c中没有类似JAVA中的垃圾回收器，但也不像c语言那样直接释放。</p>
-<p>在每个对象中都有一个retainCount的变量用来对对象的引用进行计数。</p>
-<p>可以增加retainCount的方法有：</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/20/内存管理_MRC/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 内存管理 —— MRC"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/20/内存管理_MRC/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-20 </div>
-			<div class="article-title"><a href="/2015/10/20/内存管理_ARC/" >objective-c 内存管理 —— ARC</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="ARC_自动引用计数">ARC 自动引用计数</h3><p>简单地说，就是代码中自动加入了retain/release，原先需要手动添加的用来处理内存管理的引用计数的代码可以自动地由编译器完成了。</p>
-<p>该机能在 iOS 5/ Mac OS X 10.7 开始导入，利用 Xcode4.2 可以使用该机能。简单地理解ARC，就是通过指定的语法，让编译器(LLVM 3.0)在编译代码时，自动生成实例的引用计数管理部分代码。有一点，ARC并不是GC，它只是一种代码静态分析（Static Analyzer）工具。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/20/内存管理_ARC/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 内存管理 —— ARC"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/20/内存管理_ARC/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-20 </div>
-			<div class="article-title"><a href="/2015/10/20/小妹妹/" >objective-c 内存管理 —— MRC</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p>本人是做电脑维护的，曾经在电脑公司上班，公司是方正品牌电脑市级代理商。由于电脑方面技术较强，所以公司给了一个售后服务经理的职称，也就是叫起来好听一点而已，实际上也一样是技术员，不是说给了一个经理的称呼就可以稳坐办公室了。大家有在电脑公司做过的都知道，包括刚从学校出来的人，公司给你印的名片都写著工程师啊。经常给客户做售后服务，接触的人自然五花八门，其中酸甜苦辣一言难尽。</p>
+	<!-- content -->
+	<div class="mypage">		
+	    <p>本人是做电脑维护的，曾经在电脑公司上班，公司是方正品牌电脑市级代理商。由于电脑方面技术较强，所以公司给了一个售后服务经理的职称，也就是叫起来好听一点而已，实际上也一样是技术员，不是说给了一个经理的称呼就可以稳坐办公室了。大家有在电脑公司做过的都知道，包括刚从学校出来的人，公司给你印的名片都写著工程师啊。经常给客户做售后服务，接触的人自然五花八门，其中酸甜苦辣一言难尽。</p>
 <p>还记得那是在２００３年的６月，ＮＢＡ总决赛正在进行中，在网上看文字直播时，接到领导指示说他朋友家有台电脑有可能是中病毒了要我去处理。心理那个鬱闷啊，只能看文字已经不爽了，这下连文字都没得看了。也许有人会说不会到客户家看电视啊？哎，其中甘苦自知啊！以前我们公司就有一兄弟也是看ＮＢＡ，后来被客户投诉了，被领导扣了２００元钱，要知道当年一个月也就６００元工资，他心裡那个痛啊。后来公司领导专门开会讲了这事情，要我们以客户为先，态度要好，没有一定的关系在客户家不要太随便，要注意素质，好歹也是大学生。不爽归不爽，事情还是要做的，生活要继续。</p>
 <p>十几分钟后按位址来到客户家，按了按门铃。几秒钟后门开了，我傻眼了，气质美女啊，我活了二十多年，还没见过这麽有气质的女孩子。到现在我依然只能说是气质非常好，这种气质完全是一种感觉，就像有的人你看上去有霸气一样，你能感觉却无法详细说明他的霸气。</p>
 <p>我愣在门口，对面的女孩看了我手上提了一个工具包，笑了笑说：「修电脑的吧？」</p>
@@ -706,574 +306,97 @@ var _hmt = _hmt || [];
 <p>「不是那时候，那时候我挺怕的。我说得是我下面什麽也没穿从那群人面前走过的时候，那种感觉真得无法形容。」女人的感觉就是怪，难怪人都说要特别小心每月流一周血还没事的动物。</p>
 <p>哎，我终于明白，为什麽全世界上有那麽多走光事件了。</p>
 <p>下山后，冰儿在无人的地方也不穿内衣裤，并要我一起陪她坐公交，也不去打的。用她的话，就是疯狂刺激一天，在这辈子留下一个永远无法忘记的日子－－２００３年１２月８日，后来野史称为一二八运动。　　【完】</p>
-
-	
+	  
 	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/20/小妹妹/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/0a0e87c7a755e6376163314968615266.jpg" alt="objective-c 内存管理 —— MRC"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/20/小妹妹/#more" class="btn btn-default more">阅读此文</a>
-</div>
 
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/类与函数/" >类与函数</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="类">类</h3><p>类声明的格式为：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">ClassName</span>:superClassName</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/19/类与函数/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="类与函数"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/19/类与函数/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-19 </div>
-			<div class="article-title"><a href="/2015/10/19/category/" >category —— 分类</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="category是什么">category是什么</h3><p>category是ios进行类扩展的一种方式，同样能对类尽兴扩展的方式还有extension和继承（inherit）。</p>
-<p>extension是可以看作是一种匿名的category方式，具体异同会在后文详述。</p>
-<p>继承（inherit）是通过实现子类来对父类尽兴扩展。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/19/category/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="category —— 分类"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/19/category/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-17 </div>
-			<div class="article-title"><a href="/2015/10/17/protocol/" >protocol —— 协议</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="protocol是什么">protocol是什么</h3><p>protocol是objective-c中的一种约定，他不是类，只是在其声明中约定了相关的方法，然后再由遵守约定的类对其方法进行实现。</p>
-<p>因为protocol不是类，所以本身没有对方法的实现，需要protocol的遵守者进行实现。<br>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/17/protocol/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="protocol —— 协议"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/17/protocol/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-16 </div>
-			<div class="article-title"><a href="/2015/10/16/objective-c 其他常见数据类型/" title="介绍objective-c中的基本数据类型">objective-c 其他常见数据类型</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="其他常见数据类型">其他常见数据类型</h3><p>这里介绍几个其他几个常见的数据类型，包括 NSEnumerator, NSData, NSDate等。</p>
-<p>常用的结构体有NSRange、NSPoint、NSSize、NSRect等。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/16/objective-c 其他常见数据类型/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 其他常见数据类型"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/16/objective-c 其他常见数据类型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-15 </div>
-			<div class="article-title"><a href="/2015/10/15/objective-c 基本数据类型/" title="介绍objective-c中的基本数据类型">objective-c 基本数据类型</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="基本数据类型">基本数据类型</h3><p>objective-c兼容c的基本数据类型，包括 int, short, long, double, float, char, bool(这个应该是c++的基本数据类型了)。</p>
-<p>objective-c自己的基本数据类型，包括但并不只有 NSInteger, NSNumber, NSString, NSArray, NSSet, NSDictionary。</p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/15/objective-c 基本数据类型/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/objective-c.png" alt="objective-c 基本数据类型"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/15/objective-c 基本数据类型/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-11 </div>
-			<div class="article-title"><a href="/2015/10/11/英式音标VS美式音标/" title="此文主要讲解英式音标和美式音标的区别">英式音标VS美式音标</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/11/英式音标VS美式音标/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/vs.png" alt="英式音标VS美式音标"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/11/英式音标VS美式音标/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-10 </div>
-			<div class="article-title"><a href="/2015/10/10/英式发音VS美式发音/" title="此文主要讲解英式音标和美式音标的区别">英式发音VS美式发音</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/10/英式发音VS美式发音/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/vs.png" alt="英式发音VS美式发音"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/10/英式发音VS美式发音/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-10-10 </div>
-			<div class="article-title"><a href="/2015/10/10/清辅音浊化规则/" title="此文主要讲解清辅音浊化的规则">清辅音浊化规则</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/10/10/清辅音浊化规则/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/清辅音浊化.jpg" alt="清辅音浊化规则"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/10/10/清辅音浊化规则/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-28 </div>
-			<div class="article-title"><a href="/2015/09/28/英语48个音标——6其他辅音/" title="本文主要通过新东方老师的视频来讲解6个其他辅音的发音方式。">英语48个音标——6其他辅音</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="本系列目录">本系列目录</h3><p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/28/英语48个音标——6其他辅音/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/48symbol.png" alt="英语48个音标——6其他辅音"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/28/英语48个音标——6其他辅音/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-28 </div>
-			<div class="article-title"><a href="/2015/09/28/英语48个音标——11浊辅音/" title="本文主要通过新东方老师的视频来讲解11个浊辅音的发音方式。">英语48个音标——11浊辅音</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="本系列目录">本系列目录</h3><p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/28/英语48个音标——11浊辅音/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/48symbol.png" alt="英语48个音标——11浊辅音"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/28/英语48个音标——11浊辅音/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-28 </div>
-			<div class="article-title"><a href="/2015/09/28/英语48个音标——11清辅音/" title="本文主要通过新东方老师的视频来讲解11个清辅音的发音方式。">英语48个音标——11清辅音</a></div>						
-		</h3>
-	
-
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-8">
-	
-	
-	  <h3 id="本系列目录">本系列目录</h3><p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%945%E9%95%BF%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——5长元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%947%E7%9F%AD%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——7短元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%948%E5%8F%8C%E5%85%83%E9%9F%B3/">&gt;&gt; 英语48个音标——8双元音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B8%85%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11清辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%9411%E6%B5%8A%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——11浊辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/09/28/%E8%8B%B1%E8%AF%AD48%E4%B8%AA%E9%9F%B3%E6%A0%87%E2%80%94%E2%80%946%E5%85%B6%E4%BB%96%E8%BE%85%E9%9F%B3/">&gt;&gt; 英语48个音标——6其他辅音</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E6%B8%85%E8%BE%85%E9%9F%B3%E6%B5%8A%E5%8C%96%E8%A7%84%E5%88%99/">&gt;&gt; 清辅音浊化规则</a></p>
-<p><a href="http://www.jasonai.com/2015/09/29/%E8%8B%B1%E5%BC%8F%E9%9F%B3%E6%A0%87VS%E7%BE%8E%E5%BC%8F%E9%9F%B3%E6%A0%87/">&gt;&gt; 英式音标VS美式音标</a></p>
-<p><a href="http://www.jasonai.com/2015/10/10/%E8%8B%B1%E5%BC%8F%E5%8F%91%E9%9F%B3VS%E7%BE%8E%E5%BC%8F%E5%8F%91%E9%9F%B3/">&gt;&gt; 英式发音VS美式发音</a></p>
-	
-	</div>
-	
-	<div class="col-md-4">
-	  <div class="thumbnail"><a href="/2015/09/28/英语48个音标——11清辅音/"><img src="http://7xj4cp.com1.z0.glb.clouddn.com/48symbol.png" alt="英语48个音标——11清辅音"  class="nofancybox"></a></div>
-	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/28/英语48个音标——11清辅音/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
+	<div>
+  	<center>
+	<div class="pagination">
 <ul class="pagination">
 	 
-		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-        
+				
+    	<li class="prev"><a href="/2015/10/20/内存管理_ARC/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
 
-        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"> <a href="/page/2/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+		   <li class="next"><a href="/2015/10/19/类与函数/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
 </div>
 
-  		</center>
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/10/20/小妹妹/" data-title="objective-c 内存管理 —— MRC" data-url="http://yoursite.com/2015/10/20/小妹妹/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-10-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>21</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/iOS/">iOS<span>21</span></a></li> <li><a href="/tags/objective-c/">objective-c<span>16</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			
 		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
 	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-
-
-		
-			
-	<div class="widget">
-		<h4>分类</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/English/">English<span>11</span></a></li>
-		
-			<li><a href="/categories/Linux/">Linux<span>3</span></a></li>
-		
-			<li><a href="/categories/Ruby/">Ruby<span>3</span></a></li>
-		
-			<li><a href="/categories/Tools/">Tools<span>1</span></a></li>
-		
-			<li><a href="/categories/freeBSD/">freeBSD<span>4</span></a></li>
-		
-			<li><a href="/categories/git/">git<span>2</span></a></li>
-		
-			<li><a href="/categories/iOS-100-Days/">iOS 100 Days<span>21</span></a></li>
-		
-			<li><a href="/categories/markdown/">markdown<span>1</span></a></li>
-		
-			<li><a href="/categories/shell/">shell<span>2</span></a></li>
-		
-			<li><a href="/categories/software/">software<span>1</span></a></li>
-		
-			<li><a href="/categories/读书/">读书<span>3</span></a></li>
-		
-		</ul>
 	</div>
-
-		
-			
-	<div class="widget">
-		<h4>标签云</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/理财/">理财<span>1</span></a></li>
-		
-			<li><a href="/tags/git/">git<span>3</span></a></li>
-		
-			<li><a href="/tags/Swift/">Swift<span>3</span></a></li>
-		
-			<li><a href="/tags/时钟/">时钟<span>1</span></a></li>
-		
-			<li><a href="/tags/ospf/">ospf<span>1</span></a></li>
-		
-			<li><a href="/tags/shell/">shell<span>2</span></a></li>
-		
-			<li><a href="/tags/Ruby/">Ruby<span>3</span></a></li>
-		
-			<li><a href="/tags/iOS/">iOS<span>21</span></a></li>
-		
-			<li><a href="/tags/Animation/">Animation<span>2</span></a></li>
-		
-			<li><a href="/tags/objective-c/">objective-c<span>16</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
-		
-			<li><a href="/tags/Xcode/">Xcode<span>2</span></a></li>
-		
-			<li><a href="/tags/illusion/">illusion<span>1</span></a></li>
-		
-			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
-		
-			<li><a href="/tags/sed/">sed<span>1</span></a></li>
-		
-			<li><a href="/tags/MySQL/">MySQL<span>1</span></a></li>
-		
-			<li><a href="/tags/English/">English<span>13</span></a></li>
-		
-			<li><a href="/tags/创业/">创业<span>1</span></a></li>
-		
-			<li><a href="/tags/freeBSD/">freeBSD<span>4</span></a></li>
-		
-			<li><a href="/tags/Video/">Video<span>7</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>21</span></a></li>
-		 
-		</ul>
-	</div>
-
-
-		
-			
-<div class="widget">
-  <h4>最新文章</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2025/09/28/英语发音汇总/"  title="本文主要列出了英语发音系列文章的链接，方便朋友们对文章的查找。" ><i class="fa fa-file-o"></i>英语发音系列文章汇总［置顶］...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/12/23/失去爆破与不完全爆破/"  title="本文主要介绍英文发音中的失去爆破与不完全爆破现象。" ><i class="fa fa-file-o"></i>失去爆破与不完全爆破...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/12/08/34枚金币时间手账/" ><i class="fa fa-file-o"></i>34枚金币时间手账...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/11/04/iOS中三种事件控制/" ><i class="fa fa-file-o"></i>iOS 三种事件控制...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/10/23/归档与解档/" ><i class="fa fa-file-o"></i>Objective-c 归档与解档...</a>
-      </li>
-    
-  </ul>
-</div>
-
-		
-			
-<div class="widget">
-	<h4>链接</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/JasonAi1989" title="My Github account" target="_blank"]);">Jason Ai</a></li>
+    <hr>
 	
-		<li><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/jasonai" title="My Linkin account." target="_blank"]);">My LinkedIn</a></li>
-	
-	</ul>
-</div>
-
-
-		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
+</div><!-- col-md-3 -->
 
 	
-	
-</div> <!-- row-fluid -->
+
+</div><!-- row -->
+
 	</div>
   </div>
   <div class="container-narrow">
